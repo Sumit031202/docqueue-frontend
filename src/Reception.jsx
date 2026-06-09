@@ -14,10 +14,20 @@ function Reception(){
         console.log(data);
         setPatientName("");
     }
+
+    const callNextPatient=async()=>{
+        const response=await fetch("http://localhost:8080/api/doctors/next",{
+            method:"PUT"
+        })
+        const data=await response.json();
+        console.log(data);
+    }
     return(
         <>
             <input onChange={handleNameChange} type="text" value={patientName} placeholder="Enter Patient Full Name..." />
             <button onClick={register}>Register Patient</button>
+
+            <button onClick={callNextPatient}>Next Patient</button>
         </>
     )
 }
