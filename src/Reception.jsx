@@ -3,6 +3,7 @@ import { useState } from "react";
 function Reception(){
     const [patientName,setPatientName]=useState("")
     const [activePatient,setActivepatient]=useState()
+    const [errorMessage,setErrorMessage]=useState("")
 
     const handleNameChange=(e)=>{
         setPatientName(e.target.value);
@@ -20,9 +21,15 @@ function Reception(){
         const response=await fetch("http://localhost:8080/api/doctors/next",{
             method:"PUT"
         })
-        const data=await response.json();
-        console.log(data);
-        setActivepatient(data.fullName);
+        let rawText=await response.text();
+        try{
+            const data=JSON.parse(rawText);
+            setActivepatient(data.fullName);
+            setErrorMessage("");
+        }catch(e){
+            setActivepatient("");
+            setErrorMessage(rawText);
+        }
     }
     return(
         <>
@@ -30,7 +37,7 @@ function Reception(){
             <button onClick={register}>Register Patient</button>
 
             <button onClick={callNextPatient}>Next Patient</button>
-            <p>{activePatient} is being served now</p>
+            {errorMessage==""? activePatient && <p>{activePatient} is being served now</p>:<p>{errorMessage}</p>}
         </>
     )
 }
