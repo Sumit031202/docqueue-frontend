@@ -1,7 +1,8 @@
 import { useState } from "react";
 
 function Reception(){
-    const[patientName,setPatientName]=useState("")
+    const [patientName,setPatientName]=useState("")
+    const [activePatient,setActivepatient]=useState()
 
     const handleNameChange=(e)=>{
         setPatientName(e.target.value);
@@ -21,6 +22,7 @@ function Reception(){
         })
         const data=await response.json();
         console.log(data);
+        setActivepatient(data.fullName);
     }
     return(
         <>
@@ -28,6 +30,7 @@ function Reception(){
             <button onClick={register}>Register Patient</button>
 
             <button onClick={callNextPatient}>Next Patient</button>
+            <p>{activePatient} is being served now</p>
         </>
     )
 }
