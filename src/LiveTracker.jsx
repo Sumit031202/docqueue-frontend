@@ -4,6 +4,7 @@ import { useState } from "react"
 function LiveTracker(){
     const [liveCount,setLiveCount]=useState(0);
     const [waitingQueue,setWaitingQueue]=useState([]);
+    const [activePatient,setActivepatient]=useState();
 
   useEffect(() => {
     const eventSource = new EventSource("http://localhost:8080/api/patients/stream");
@@ -13,6 +14,10 @@ function LiveTracker(){
         // console.log(data.length);
         setLiveCount(queue.length);
         setWaitingQueue(queue);
+    })
+    eventSource.addEventListener("Active-Patient",(e)=>{
+        const patient=JSON.parse(e.data).fullName;
+        setActivepatient(patient);
     })
         return () => {
             eventSource.close();
@@ -25,6 +30,9 @@ function LiveTracker(){
                 <h1>Live Queue Monitor</h1>
             </div>
             <p>Patients Currently Waiting: {liveCount}</p>
+            <p>
+                {activePatient} is being served now (Live Tracker)
+            </p>
             <ul>
                 {waitingQueue.map((patient)=>{
                     return <li key={patient.id}>{patient.fullName}</li>
