@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react"
 
-function LiveTracker(){
+function PatientDashboard(){
     const [liveCount,setLiveCount]=useState(0);
     const [waitingQueue,setWaitingQueue]=useState([]);
     const [activePatient,setActivepatient]=useState();
@@ -42,4 +42,4 @@ function LiveTracker(){
     )
 
 }
-export default LiveTracker
+export default PatientDashboard

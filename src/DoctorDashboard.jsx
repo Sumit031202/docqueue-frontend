@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Reception(){
+function DoctorDashboard(){
     const [patientName,setPatientName]=useState("")
     const [activePatient,setActivepatient]=useState()
     const [errorMessage,setErrorMessage]=useState("")
@@ -41,4 +41,4 @@ function Reception(){
         </>
     )
 }
-export default Reception;
+export default DoctorDashboard;
