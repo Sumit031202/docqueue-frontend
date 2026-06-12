@@ -1,13 +1,13 @@
-import LiveTracker from "./LiveTracker";
-import Reception from "./Reception";
+import DoctorDashboard from "./DoctorDashboard";
+import PatientDashboard from "./PatientDashboard";
 
 
 function App() {
 
   return(
     <>
-      <Reception/>
-      <LiveTracker/>
+      <DoctorDashboard/>
+      <PatientDashboard/>
     </>
   );
 }
