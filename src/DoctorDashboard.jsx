@@ -2,7 +2,7 @@ import { act, useEffect, useState } from "react";
 
 function DoctorDashboard(){
     // const [patientName,setPatientName]=useState("")
-    const [activePatient,setActivePatient]=useState()
+    const [activePatient,setActivePatient]=useState("Nobody")
     const [errorMessage,setErrorMessage]=useState("")
     const [waitingQueue,setWaitingQueue]=useState([]) // empty queue
 
