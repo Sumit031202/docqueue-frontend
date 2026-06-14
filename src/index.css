@@ -1,72 +1,207 @@
-*{
-    /* background-color: white; */
+* {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-body{
-    background-color: #f8fafc;
+
+body {
+    background-color: #f1f5f9; /* Subtle light gray background wrapper */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
-.doctor-dashboard{
-    max-width: 700px;
-    margin:40px auto;
-    padding: 20px;
+
+/* Main Container Frame */
+.doctor-dashboard {
+    width: 100%;
+    width: 750px; /* Matched to the compact aspect ratio of your design */
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.04);
+    padding: 30px;
     display: flex;
     flex-direction: column;
-    gap:20px;
+    gap: 20px;
 }
-.card{
-    border-radius: 12px;
-    background-color: white;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
-    padding:20px;
+
+/* Dashboard Header Alignment */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
 }
-.current-patient-card h3, .queue-card h4{
-    margin-bottom: 12px;
+
+.doctor-dashboard h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #032b53; /* Deep navy blue from the image */
 }
-.current-patient-card p{
-    font-size: 1.5rem;
-    font-weight: bold;
+
+/* Status Header Badges */
+.header-status {
+    display: flex;
+    gap: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #334155;
 }
-.next-btn{
-    background-color: rgba(11, 88, 11, 0.877);
-    color:white;
-    border-radius: 6px;
-    width: 100%;
-    padding:20px;
-    cursor: pointer;
-}
-.next-btn:disabled{
-    background-color: rgba(84, 153, 84, 0.877);
-    cursor:not-allowed;
-}
-.next-btn:not(:disabled):hover{
-    transform: scale(1.01);
-}
-.queue-card li{
-    /* border:2px solid rgba(152, 152, 210, 0.874); */
-    border-radius: 6px;
-    padding:15px;
-    background-color: aliceblue;
+
+.status-live {
+    color: #16a34a;
     display: flex;
     align-items: center;
-    justify-content:space-between;
+    gap: 5px;
 }
-.token-no{
-    /* border:2px solid rgb(59, 59, 230); */
-    border-radius: 100%;
-    width:30px;
-    height: 30px;
+
+.status-live .dot {
+    width: 6px;
+    height: 6px;
+    background-color: #16a34a;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* Base Card Layout */
+.card {
+    border-radius: 8px;
+    padding: 20px;
+}
+
+/* Currently Serving Card Style */
+.current-patient-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: #f0fdf4; /* Ultra-light clean mint green tint */
+    border: 1px solid #dcfce7;
+}
+
+.avatar {
+    width: 65px;
+    height: 65px;
+    padding: 14px;
+    border-radius: 50%;
+    background-color: #e8f5e9;
+}
+
+.active-patient-info {
+    display: flex;
+    align-items: center; /* Linear horizontal layout matching design row */
+    gap: 15px;
+}
+
+.active-patient-info h3 {
+    font-size: 0.9rem;
+    color: #15803d;
+    font-weight: 600;
+    position: absolute; /* Kept text structured nicely above variables if wrapped */
+    transform: translateY(-22px);
+}
+
+.active-token {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #16a34a;
+    margin-top: 10px;
+}
+
+.name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #032b53;
+    margin-top: 14px;
+}
+
+/* Next Patient Action Button Layout */
+.next-patient-card.card {
+    padding: 0; /* Ensures full width touch action */
+}
+
+.next-btn {
+    background-color: #10b981; /* Primary bright call-to-action green */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    padding: 16px;
+    cursor: pointer;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.2s ease;
+}
+
+.next-btn:hover:not(:disabled) {
+    background-color: #059669;
+}
+
+.next-btn:disabled {
+    background-color: #a7f3d0;
+    cursor: not-allowed;
+}
+
+
+/* Queue List Container Base */
+.queue-card {
+    border: 1px solid #e2e8f0;
+    background-color: #ffffff;
+    padding: 15px 5px;
+}
+
+.queue-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 15px 15px 15px;
+}
+
+.queue-title .title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #032b53;
+}
+
+/* Live Queue List Structural Elements */
+.queue-card ol {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+.queue-card li {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Aligns content side by side to the left */
+    gap: 25px;
+    padding: 14px 15px;
+    background-color: #ffffff;
+    border-top: 1px solid #f1f5f9; /* Soft separation borders instead of colored boxes */
+}
+
+/* Individual Queue Token Badges */
+.token-no {
+    border-radius: 4px;
+    width: 34px;
+    height: 26px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color:rgb(59, 59, 230);
-    background-color:rgba(59, 59, 230, 0.183) ;
+    color: #16a34a;
+    background-color: #dcfce7;
+    font-weight: 700;
+    font-size: 0.9rem;
 }
-.queue-card ol{
-    display: flex;
-    flex-direction: column;
-    gap:5px;
-    list-style: none;
+
+.patient-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1e293b;
 }
+
