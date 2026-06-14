@@ -6,7 +6,8 @@
 }
 
 body {
-    background-color: #f1f5f9; /* Subtle light gray background wrapper */
+    background-color: #f1f5f9;
+    /* Subtle light gray background wrapper */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,7 +17,8 @@ body {
 /* Main Container Frame */
 .doctor-dashboard {
     width: 100%;
-    width: 750px; /* Matched to the compact aspect ratio of your design */
+    width: 750px;
+    /* Matched to the compact aspect ratio of your design */
     background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.04);
@@ -37,7 +39,8 @@ body {
 .doctor-dashboard h2 {
     font-size: 1.6rem;
     font-weight: 700;
-    color: #032b53; /* Deep navy blue from the image */
+    color: #032b53;
+    /* Deep navy blue from the image */
 }
 
 /* Status Header Badges */
@@ -75,7 +78,8 @@ body {
     display: flex;
     align-items: center;
     gap: 20px;
-    background-color: #f0fdf4; /* Ultra-light clean mint green tint */
+    background-color: #f0fdf4;
+    /* Ultra-light clean mint green tint */
     border: 1px solid #dcfce7;
 }
 
@@ -89,7 +93,8 @@ body {
 
 .active-patient-info {
     display: flex;
-    align-items: center; /* Linear horizontal layout matching design row */
+    align-items: center;
+    /* Linear horizontal layout matching design row */
     gap: 15px;
 }
 
@@ -97,7 +102,8 @@ body {
     font-size: 0.9rem;
     color: #15803d;
     font-weight: 600;
-    position: absolute; /* Kept text structured nicely above variables if wrapped */
+    position: absolute;
+    /* Kept text structured nicely above variables if wrapped */
     transform: translateY(-22px);
 }
 
@@ -117,11 +123,13 @@ body {
 
 /* Next Patient Action Button Layout */
 .next-patient-card.card {
-    padding: 0; /* Ensures full width touch action */
+    padding: 0;
+    /* Ensures full width touch action */
 }
 
 .next-btn {
-    background-color: #10b981; /* Primary bright call-to-action green */
+    background-color: #10b981;
+    /* Primary bright call-to-action green */
     color: #ffffff;
     border: none;
     border-radius: 8px;
@@ -178,11 +186,13 @@ body {
 .queue-card li {
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Aligns content side by side to the left */
+    justify-content: flex-start;
+    /* Aligns content side by side to the left */
     gap: 25px;
     padding: 14px 15px;
     background-color: #ffffff;
-    border-top: 1px solid #f1f5f9; /* Soft separation borders instead of colored boxes */
+    border-top: 1px solid #f1f5f9;
+    /* Soft separation borders instead of colored boxes */
 }
 
 /* Individual Queue Token Badges */
@@ -205,3 +215,59 @@ body {
     color: #1e293b;
 }
 
+
+/* Mobile Responsive Breakpoint */
+@media (max-width: 800px) {
+    body {
+        padding: 10px;
+        align-items: flex-start;
+    }
+
+    .doctor-dashboard {
+        width: 95vw;
+        margin: auto;
+        padding: 15px;
+        gap: 5px;
+    }
+    .doctor-dashboard h2 {
+        font-size: 1.3rem;
+    }
+    .name {
+        font-size: 1.2rem;
+    }
+
+    .active-token {
+        font-size: 1.2rem;
+    }
+    .current-patient-card {
+        flex-direction: column; /* Stacks the avatar icon above the text details */
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .active-patient-info {
+        display: flex;
+        flex-direction: column; /* Stacks the token and name vertically */
+        align-items: flex-start;
+        gap: 4px;
+        width: 100%;
+    }
+
+    .active-patient-info h3 {
+        position: static; /* Removes the absolute positioning layout from desktop */
+        transform: none;  /* Resets the position shifts */
+        margin-bottom: 5px;
+    }
+
+    .active-token {
+        font-size: 1.8rem; /* Keeps the token prominent but size-appropriate */
+        margin-top: 0;
+    }
+
+    .name {
+        font-size: 1.3rem;
+        margin-top: 0;
+        word-break: break-word; /* Ensures extremely long names wrap nicely to the next line instead of overflowing */
+    }
+
+}
