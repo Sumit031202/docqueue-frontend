@@ -1,0 +1,72 @@
+*{
+    /* background-color: white; */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #f8fafc;
+}
+.doctor-dashboard{
+    max-width: 700px;
+    margin:40px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+.card{
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
+    padding:20px;
+}
+.current-patient-card h3, .queue-card h4{
+    margin-bottom: 12px;
+}
+.current-patient-card p{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.next-btn{
+    background-color: rgba(11, 88, 11, 0.877);
+    color:white;
+    border-radius: 6px;
+    width: 100%;
+    padding:20px;
+    cursor: pointer;
+}
+.next-btn:disabled{
+    background-color: rgba(84, 153, 84, 0.877);
+    cursor:not-allowed;
+}
+.next-btn:not(:disabled):hover{
+    transform: scale(1.01);
+}
+.queue-card li{
+    /* border:2px solid rgba(152, 152, 210, 0.874); */
+    border-radius: 6px;
+    padding:15px;
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+.token-no{
+    /* border:2px solid rgb(59, 59, 230); */
+    border-radius: 100%;
+    width:30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:rgb(59, 59, 230);
+    background-color:rgba(59, 59, 230, 0.183) ;
+}
+.queue-card ol{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+    list-style: none;
+}
