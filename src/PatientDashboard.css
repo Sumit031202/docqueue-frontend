@@ -1,0 +1,355 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f8fafc;
+    /* border:2px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Main Dashboard Wrapper Frame */
+.patient-dashboard-container {
+    background-color: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    /* border:2px solid black; */
+    padding:50px;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Header Elements */
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-title-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.8rem;
+}
+
+.dashboard-header h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #032b53; /* Dark Navy Accent */
+}
+
+/* Base Card Elements styling */
+.card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    padding: 24px;
+}
+
+/* 1. Join Queue Card Structure */
+.form-card {
+    border: 1px solid #ccead5;
+}
+
+.form-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    color: #16a34a;
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+.input-group {
+    display: flex;
+    gap: 16px;
+}
+
+.input-group input {
+    flex: 1;
+    padding: 14px 18px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #334155;
+    background-color: #f8fafc;
+    transition: border-color 0.2s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #10b981;
+    background-color: #ffffff;
+}
+
+.join-btn {
+    background-color: #10b981;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+}
+
+.join-btn:hover {
+    background-color: #059669;
+}
+
+/* 2. Grid Cards Section (Horizontal row layout for Desktop) */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.card-accent-header {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #15803d; /* Green title text */
+    margin-bottom: 12px;
+}
+
+.card-accent-header.accent-blue {
+    color: #1d4ed8; /* Blue title text */
+}
+
+.card-body-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Custom Individual Info Cards */
+.current-patient-card {
+    background-color: #f0fdf4; /* Soft green tint tint */
+    border: 1px solid #dcfce7;
+}
+
+.waiting-count-card {
+    background-color: #eff6ff; /* Soft blue tint tint */
+    border: 1px solid #dbeafe;
+}
+
+.avatar{
+    width: 64px;
+    height: 64px;
+    background-color: #e8f5e9;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.blue-bg {
+    background-color: #e0f2fe;
+}
+
+.active-token {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #16a34a;
+    line-height: 1.1;
+}
+
+.active-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #032b53;
+    margin-top: 4px;
+}
+
+.waiting-count {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #1d4ed8;
+    line-height: 1.1;
+}
+
+.waiting-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #032b53;
+    margin-top: 4px;
+}
+
+/* 3. Live Queue Panel section layout */
+.queue-card {
+    padding: 20px 0 0 0; /* Align rows properly to the edges */
+}
+
+.queue-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 24px 20px 24px;
+}
+
+.queue-header h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #032b53;
+}
+
+.queue-list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+.queue-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    border-top: 1px solid #f1f5f9;
+}
+
+.item-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.token-badge {
+    background-color: #dcfce7;
+    color: #16a34a;
+    width: 36px;
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.patient-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #334155;
+}
+
+.chevron {
+    font-size: 1.4rem;
+    color: #94a3b8;
+    font-weight: 300;
+}
+
+/* Container for the avatar and text details side-by-side */
+.current-patient-card .card-body-row {
+    display: flex;
+    align-items: center; /* Vertically centers the image with the text block */
+    gap: 20px;
+}
+
+/* Force the text block on the right to stack its contents vertically */
+.current-patient-card .patient-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px; /* Minimal space between elements */
+}
+
+/* Adjusting font settings to clean up the stack look */
+.current-patient-card .card-accent-header {
+    margin-bottom: 0; /* Clear bottom margin since it's inside the text stack now */
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #15803d;
+}
+
+.current-patient-card .active-token {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #16a34a;
+    line-height: 1;
+    margin: 4px 0;
+}
+
+.current-patient-card .active-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #032b53;
+}
+
+
+/* ========================================== */
+/* 📱 4. Mobile Responsive Rules Breakpoint   */
+/* ========================================== */
+@media (max-width: 770px) {
+    body {
+        padding: 12px;
+        align-items: flex-start;
+    }
+
+    .patient-dashboard-container {
+        width: 95vw;
+        gap: 16px;
+    }
+
+    .dashboard-header h2 {
+        font-size: 1.4rem;
+    }
+
+    /* Stack form input elements vertically */
+    .input-group {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .join-btn {
+        justify-content: center;
+        padding: 14px;
+    }
+
+    /* Transform side-by-side grid summaries to stacked rows */
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .card-body-row {
+        gap: 16px;
+    }
+
+    .active-token, .waiting-count {
+        font-size: 2rem;
+    }
+
+    .active-name, .waiting-label {
+        font-size: 1.1rem;
+        word-break: break-word; /* Prevents overflow with extra long names */
+    }
+
+    /* Compact queue rows on smaller monitors */
+    .queue-item {
+        padding: 14px 16px;
+    }
+
+    .item-left {
+        gap: 14px;
+    }
+}
