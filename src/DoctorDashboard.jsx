@@ -2,6 +2,7 @@ import { act, useEffect, useState } from "react";
 import avatar from "./assets/user.svg"
 import queue from "./assets/queue.svg"
 import arrow from "./assets/arrow.svg"
+import "./DoctorDashboard.css"
 
 function DoctorDashboard(){
     // const [patientName,setPatientName]=useState("")
