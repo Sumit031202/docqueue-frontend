@@ -11,13 +11,14 @@ import logo from "./assets/docqueue.svg"
 
 
 function PatientDashboard() {
+    const baseURL="https://api.docqueue.online"
     const [liveCount, setLiveCount] = useState(0);
     const [waitingQueue, setWaitingQueue] = useState([]);
     const [activePatient, setActivepatient] = useState({ "fullName": "Nobody" });
     const [patientName, setPatientName] = useState("");
 
     useEffect(() => {
-        const eventSource = new EventSource("http://localhost:8080/api/patients/stream");
+        const eventSource = new EventSource(`${baseURL}/api/patients/stream`);
         eventSource.addEventListener("Queue-Update", (e) => {
             const queue = JSON.parse(e.data);
             // console.log(data);
@@ -42,7 +43,7 @@ function PatientDashboard() {
     }
 
     const register = async () => {
-        const response = await fetch(`http://localhost:8080/api/patients/queue/join/${patientName}`, {
+        const response = await fetch(`${baseURL}/api/patients/queue/join/${patientName}`, {
             method: "POST"
         })
         const data = await response.json();

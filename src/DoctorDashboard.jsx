@@ -5,8 +5,8 @@ import arrow from "./assets/arrow.svg"
 import "./DoctorDashboard.css"
 
 function DoctorDashboard(){
-    // const [patientName,setPatientName]=useState("")
-    // "{\"fullName\":\"Nobody\"}"
+
+    const baseURL="https://api.docqueue.online"
     const [activePatient,setActivePatient]=useState({"fullName":"Nobody"})
     const [errorMessage,setErrorMessage]=useState("")
     const [waitingQueue,setWaitingQueue]=useState([]) // empty queue
@@ -14,7 +14,7 @@ function DoctorDashboard(){
 
     // live queue
     useEffect(()=>{
-        const eventSource=new EventSource("http://localhost:8080/api/patients/stream");
+        const eventSource=new EventSource(`${baseURL}/api/patients/stream`);
         eventSource.addEventListener("Queue-Update",e=>{
             const queue=JSON.parse(e.data);
             console.log(queue);
@@ -43,7 +43,7 @@ function DoctorDashboard(){
     const callNextPatient=async()=>{
         
         try{
-            const response=await fetch("http://localhost:8080/api/doctors/next",{
+            const response=await fetch(`${baseURL}/api/doctors/next`,{
             method:"PUT"
             })
             if(!response.ok){
