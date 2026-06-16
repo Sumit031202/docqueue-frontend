@@ -16,7 +16,7 @@ body {
 
 /* Main Container Frame */
 .doctor-dashboard {
-    width: 100%;
+    /* width: 100%; */
     width: 80vw;
     /* Matched to the compact aspect ratio of your design */
     background-color: #ffffff;
@@ -155,12 +155,9 @@ body {
     cursor: not-allowed;
 }
 
-
-/* Queue List Container Base */
 .queue-card {
     border: 1px solid #e2e8f0;
     background-color: #ffffff;
-    padding: 15px 5px;
 }
 
 .queue-title {
@@ -219,7 +216,7 @@ body {
 /* Mobile Responsive Breakpoint */
 @media (max-width: 800px) {
     body {
-        padding: 10px;
+        padding: 12px;
         align-items: flex-start;
     }
 
