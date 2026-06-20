@@ -143,24 +143,28 @@ function PatientDashboard() {
             </div>
 
             {/* 4. Live Queue List Card */}
-            <section className="queue-card card">
-                <div className="queue-header">
-                    <img src={queue} alt="" />
-                    <h3>Live Queue ({liveCount})</h3>
-                </div>
-                <ol className="queue-list">
-                    {waitingQueue.map((patient) => (
-                        <li key={patient.id} className="queue-item">
-                            <div className="item-left">
-                                <span className="token-badge">{patient.id}</span>
-                                <span className="patient-name">{patient.fullName}</span>
+            <div className="queue-card card">
+                                {waitingQueue.length===0?<h4>No Patients are in Queue</h4>:
+                                <>  
+                                    <div className="queue-title">
+                                        <img src={queue} alt="" />
+                                        <div className="title">Live Queue ({waitingQueue.length})</div>
+                                    </div>
+                                    <ol>
+                                        {/* <li>
+                                            <div className="token-no">12</div>
+                                            <div className="patient-name">Ravi Kumar</div> 
+                                        </li> */}
+                                        {waitingQueue.map((patient)=>{
+                                            return <li key={patient.id}>
+                                                <div className="token-no">{patient.id}</div>
+                                                <div className="patient-name">{patient.fullName}</div>
+                                            </li>
+                                        })}
+                                    </ol>
+                                </>
+                                }
                             </div>
-                            {/* Optional chevron matching the design image indicators */}
-                            <span className="chevron">›</span>
-                        </li>
-                    ))}
-                </ol>
-            </section>
         </div>
     );
 
