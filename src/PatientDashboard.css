@@ -1,20 +1,3 @@
-* {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: #f8fafc;
-    /* border:2px solid black; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
-}
-
 /* Main Dashboard Wrapper Frame */
 .patient-dashboard-container {
     background-color: #ffffff;
