@@ -8,9 +8,11 @@ import user from "./assets/user.svg"
 import join from "./assets/join.svg"
 import join2 from "./assets/join2.svg"
 import logo from "./assets/docqueue.svg"
+import { useParams } from "react-router-dom";
 
 
 function PatientDashboard() {
+    const {doctorId}=useParams();
     const baseURL="https://api.docqueue.online"
     const [liveCount, setLiveCount] = useState(0);
     const [waitingQueue, setWaitingQueue] = useState([]);
@@ -18,9 +20,11 @@ function PatientDashboard() {
     const [patientName, setPatientName] = useState("");
 
     useEffect(() => {
-        const eventSource = new EventSource(`${baseURL}/api/patients/stream`);
+        const eventSource = new EventSource(`${baseURL}/api/patients/stream?doctorId=${doctorId}`);
+        console.log(doctorId);
         eventSource.addEventListener("Queue-Update", (e) => {
             const queue = JSON.parse(e.data);
+            console.log("hello")
             // console.log(data);
             // console.log(data.length);
             setLiveCount(queue.length);
@@ -33,10 +37,14 @@ function PatientDashboard() {
             }
             setActivepatient(patientData);
         })
+        eventSource.onerror = (error) => {
+        console.error("SSE connection error:", error);
+        console.log("Ready state:", eventSource.readyState);
+        };
         return () => {
             eventSource.close();
         };
-    }, []);
+    }, [doctorId]);
 
     const handleNameChange = (e) => {
         setPatientName(e.target.value);

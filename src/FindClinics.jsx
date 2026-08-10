@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import "./FindClinics.css"
 import doctor_logo from "./assets/doctor_icon.svg"
+import { useNavigate } from "react-router-dom";
 
 const baseURL = import.meta.env.VITE_BACKEND_URL
 
 function FindClinics() {
 
+  const navigate=useNavigate();
   const [errorMessage, setErrorMessage] = useState("")
   const [doctors, setDoctors] = useState([])
 
@@ -56,7 +58,7 @@ function FindClinics() {
               </div>
               <strong>Queue is currently active</strong>
             </div>
-            <button className="join-queue-btn">Join/View Queue</button>
+            <button className="join-queue-btn" onClick={()=>{navigate(`/patients/${doctor.id}`)}}>Join/View Queue</button>
           </div>
         ))}
 
