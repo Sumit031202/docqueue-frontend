@@ -4,7 +4,6 @@ function Hero() {
     return (
         <section className="hero">
             <div className="hero-container">
-
                 <section className="hero-left">
                     <div className="badge">
                         {/* <span>IN</span> */}
@@ -69,7 +68,7 @@ function Hero() {
                                 <p>Completed</p>
                                 <h2>45</h2>
                             </div>
-                            <div className="metric-card">
+                            <div className="metric-card" id="avg-wait">
                                 <p>Avg. Wait</p>
                                 <h2>22 min</h2>
                             </div>
