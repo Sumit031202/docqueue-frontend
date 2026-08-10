@@ -1,18 +1,18 @@
-import DoctorDashboard from "./DoctorDashboard";
 import FindClinics from "./FindClinics";
 import LandingPage from "./LandingPage";
-import PatientDashboard from "./PatientDashboard";
-
+import Navbar from "./components/Navbar";
+import { BrowserRouter,Routes,Route } from "react-router-dom";
 
 function App() {
 
   return(
-    <>
-      <LandingPage/>
-      <FindClinics/>
-      {/* <DoctorDashboard/> */}
-      {/* <PatientDashboard/> */}
-    </>
+    <BrowserRouter>
+      <Navbar/>
+      <Routes>
+        <Route path="/" element={<LandingPage/>}></Route>
+        <Route path="/find-clinics" element={<FindClinics/>}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

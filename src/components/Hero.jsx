@@ -1,6 +1,9 @@
 import "./Hero.css"
+import { useNavigate } from "react-router-dom";
 import arrow from "../assets/arrow.svg"
+
 function Hero() {
+    const navigate=useNavigate();
     return (
         <section className="hero">
             <div className="hero-container">
@@ -22,7 +25,7 @@ function Hero() {
                         efficiently.
                     </p>
                     <div className="hero-buttons">
-                        <button className="primary-btn">
+                        <button className="primary-btn" onClick={()=>navigate("/find-clinics")}>
                             <span>🔍</span>
                             Find Clinics
                         </button>
