@@ -51,36 +51,13 @@ function PatientDashboard() {
     }
 
     const register = async () => {
-        const response = await fetch(`${baseURL}/api/patients/queue/join/${patientName}`, {
+        const response = await fetch(`${baseURL}/api/patients/queue/join/${doctorId}/${patientName}`, {
             method: "POST"
         })
         const data = await response.json();
         console.log(data);
         setPatientName("");
     }
-
-    // return (
-    //     <div className="patient-dashboard-container">
-    //         <div className="Patient" style={{ border: "2px solid black", margin: "5px" }}>
-    //             <p>Patients Currently Waiting: {liveCount}</p>
-    //             <div>
-    //                 <input onChange={handleNameChange} type="text" value={patientName} placeholder="Enter Patient Full Name..." />
-    //                 <button onClick={register}>Register Patient</button>
-    //                 <h1>Live Queue Monitor</h1>
-    //             </div>
-    //             {activePatient !== "Nobody" && activePatient.fullName !== "Nobody" ? (
-    //                 <p><strong>{activePatient}</strong> is being served now</p>
-    //             ) : (
-    //                 <p>Nobody is in the Queue</p>
-    //             )}
-    //             <ul>
-    //                 {waitingQueue.map((patient) => {
-    //                     return <li key={patient.id}>{patient.fullName}</li>
-    //                 })}
-    //             </ul>
-    //         </div>
-    //     </>
-    // )
 
     return (
         <div className="patient-dashboard-container">
