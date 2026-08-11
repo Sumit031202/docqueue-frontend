@@ -2,7 +2,7 @@ import "./Workflow.css"
 function Workflow(){
 
     return(
-        <section className="workflow">
+        <section className="workflow" id="how-it-works">
             <div className="badge">PROCESS FLOW</div>
             <div className="workflow-title">
                 <h2>How DocQueue Works</h2>

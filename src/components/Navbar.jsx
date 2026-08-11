@@ -8,8 +8,8 @@ function Navbar(){
                 <ul className='navbar_links'>
                     <li><a href="/">Home</a></li>
                     <li><a href="/find-clinics">Find Clinics</a></li>
-                    <li><a href="#">How it Works</a></li>
-                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#how-it-works">How it Works</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
                     <li><a href="#">FAQ</a></li>
                 </ul>
             </nav>

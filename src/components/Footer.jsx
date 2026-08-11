@@ -69,7 +69,7 @@ function Footer() {
                             How It Works
                         </a>
 
-                        <a href="#find-clinics">
+                        <a href="/find-clinics">
                             Find Clinics
                         </a>
 

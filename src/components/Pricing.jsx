@@ -2,8 +2,7 @@ import "./Pricing.css";
 
 function Pricing() {
     return (
-        <section className="pricing">
-
+        <section className="pricing" id="pricing">
             {/* Section Header */}
             <div className="pricing-header">
                 <div className="badge">PRICING</div>

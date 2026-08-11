@@ -30,3 +30,6 @@ body{
     letter-spacing: 0.7px;  
     margin-bottom: 10px; 
 }
+section[id] {
+    scroll-margin-top: 40px;
+}
