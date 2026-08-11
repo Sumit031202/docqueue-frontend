@@ -36,8 +36,8 @@ function Pricing() {
                     <h3>Founding Clinics Offer</h3>
 
                     <p className="offer-description">
-                        Flat lifetime rate for our first 100 onboarded
-                        medical practices. Lock in your discount today.
+                        Get DocQueue for ₹299/month for your first 12 months.
+                        Limited to the first 100 clinics
                     </p>
 
                     <div className="price">
