@@ -81,3 +81,30 @@
     box-shadow:0 10px 20px rgba(99,102,241,.15);
 
 }
+/* TABLET */
+@media (max-width: 1250px) {
+
+    .navbar {
+        height: 75px;
+        padding: 0 5%;
+    }
+
+    .navbar nav ul {
+        gap: 25px;
+    }
+
+    .navbar nav ul li {
+        font-size: 15px;
+    }
+
+    .login-btn {
+        padding: 11px 18px;
+        font-size: 14px;
+    }
+}
+/* remove navigations for smallers screens */
+@media (max-width: 850px) {
+    .navbar nav {
+        display: none;
+    }
+}
