@@ -1,0 +1,498 @@
+/* =========================================
+   FOOTER CTA
+========================================= */
+
+.footer-cta {
+    width: 100%;
+
+    padding: 85px 8%;
+
+    background: #6366f1;
+
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.footer-cta-content {
+    max-width: 760px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* Badge */
+
+.footer-cta-badge {
+    padding: 7px 14px;
+
+    background: rgba(255, 255, 255, 0.14);
+
+    border: 1px solid rgba(255, 255, 255, 0.22);
+
+    border-radius: 999px;
+
+    color: white;
+
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    letter-spacing: 0.7px;
+}
+
+
+/* Heading */
+
+.footer-cta h2 {
+    margin: 22px 0 0;
+
+    color: white;
+
+    font-size: 2.5rem;
+    line-height: 1.15;
+
+    font-weight: 800;
+
+    letter-spacing: -0.7px;
+}
+
+
+/* Description */
+
+.footer-cta p {
+    max-width: 650px;
+
+    margin: 20px 0 0;
+
+    color: rgba(255, 255, 255, 0.82);
+
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   CTA BUTTONS
+========================================= */
+
+.footer-cta-buttons {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    margin-top: 30px;
+}
+
+
+/* Primary */
+
+.cta-primary {
+    min-width: 155px;
+
+    padding: 14px 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: white;
+
+    color: #6366f1;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.cta-primary span {
+    font-size: 1.15rem;
+}
+
+.cta-primary:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Secondary */
+
+.cta-secondary {
+    min-width: 145px;
+
+    padding: 13px 22px;
+
+    border: 1px solid rgba(255, 255, 255, 0.75);
+
+    border-radius: 10px;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.cta-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+    width: 100%;
+
+    background: #0f172a;
+
+    color: white;
+
+    padding: 65px 8% 25px;
+}
+
+
+/* =========================================
+   MAIN FOOTER
+========================================= */
+
+.footer-main {
+    max-width: 1250px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+
+    gap: 70px;
+}
+
+
+/* =========================================
+   BRAND
+========================================= */
+
+.footer-brand {
+    max-width: 350px;
+}
+
+
+/*
+   Your Logo component contains:
+   .logo
+   .logo img
+   .logo h2
+
+   Override the text color here so the
+   existing logo works on the dark footer.
+*/
+
+.footer-brand .logo {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.footer-brand .logo h2 {
+    margin: 0;
+
+    color: white;
+
+    font-size: 1.45rem;
+    font-weight: 750;
+}
+
+.footer-brand .logo img {
+    width: 36px;
+    height: 36px;
+}
+
+
+/* Brand description */
+
+.footer-brand > p {
+    margin: 20px 0 0;
+
+    color: #94a3b8;
+
+    font-size: 0.88rem;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   SOCIAL LINKS
+========================================= */
+
+.social-links {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 22px;
+}
+
+.social-links a {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #334155;
+
+    border-radius: 50%;
+
+    color: #94a3b8;
+
+    text-decoration: none;
+
+    font-size: 0.75rem;
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.social-links a:hover {
+    color: white;
+
+    border-color: #6366f1;
+
+    background: rgba(99, 102, 241, 0.12);
+}
+
+
+/* =========================================
+   FOOTER COLUMNS
+========================================= */
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.footer-column h3 {
+    margin: 0 0 8px;
+
+    color: white;
+
+    font-size: 0.78rem;
+    font-weight: 750;
+
+    letter-spacing: 0.7px;
+}
+
+.footer-column a {
+    width: max-content;
+
+    color: #94a3b8;
+
+    text-decoration: none;
+
+    font-size: 0.87rem;
+
+    transition: 0.2s ease;
+}
+
+.footer-column a:hover {
+    color: white;
+
+    transform: translateX(2px);
+}
+
+
+/* =========================================
+   BOTTOM FOOTER
+========================================= */
+
+.footer-bottom {
+    max-width: 1250px;
+
+    margin: 55px auto 0;
+
+    padding-top: 22px;
+
+    border-top: 1px solid #1e293b;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.footer-bottom p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 0.78rem;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .footer-cta {
+        padding: 75px 6%;
+    }
+
+    .footer-cta h2 {
+        font-size: 2.2rem;
+    }
+
+    .footer {
+        padding: 55px 6% 25px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1.5fr 1fr 1fr;
+
+        gap: 45px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+
+        max-width: 500px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+    .footer-cta {
+        padding: 65px 20px;
+    }
+
+    .footer-cta h2 {
+        font-size: 1.85rem;
+
+        letter-spacing: -0.4px;
+    }
+
+    .footer-cta h2 br {
+        display: none;
+    }
+
+    .footer-cta p {
+        font-size: 0.9rem;
+    }
+
+    .footer-cta-buttons {
+        width: 100%;
+
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+    .cta-primary,
+    .cta-secondary {
+        width: 100%;
+
+        max-width: 280px;
+    }
+
+
+    /* Footer */
+
+    .footer {
+        padding: 50px 22px 22px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 40px 25px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+
+        max-width: 100%;
+    }
+
+    .footer-brand .logo h2 {
+        font-size: 1.3rem;
+    }
+
+    .footer-brand > p {
+        max-width: 400px;
+
+        font-size: 0.84rem;
+    }
+
+    .footer-column h3 {
+        font-size: 0.75rem;
+    }
+
+    .footer-column a {
+        font-size: 0.83rem;
+    }
+
+    .footer-bottom {
+        margin-top: 40px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 7px;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 400px) {
+
+    .footer-cta h2 {
+        font-size: 1.65rem;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-column {
+        gap: 10px;
+    }
+}

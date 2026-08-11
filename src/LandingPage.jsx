@@ -3,6 +3,7 @@ import { BrowserRouter,Routes,Route } from "react-router-dom"
 import Workflow from "./components/Workflow"
 import Benefits from "./components/Benefits"
 import Pricing from "./components/Pricing"
+import Footer from "./components/Footer"
 
 function LandingPage(){
     return(
@@ -11,6 +12,7 @@ function LandingPage(){
             <Workflow/>
             <Benefits/>
             <Pricing/>
+            <Footer/>
         </>
     )
 }
