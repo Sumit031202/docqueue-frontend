@@ -1,0 +1,252 @@
+.workflow {
+    width: 100%;
+    padding: 70px 8% 75px;
+
+    background: #f8fafc;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* ================================
+   BADGE
+================================ */
+
+.workflow > .badge {
+    padding: 7px 14px;
+
+    background: #eef0ff;
+    border: 1px solid #e1e4ff;
+    border-radius: 9px;
+
+    color: #6366f1;
+
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    letter-spacing: 0.7px;
+}
+
+
+/* ================================
+   TITLE
+================================ */
+
+.workflow-title {
+    text-align: center;
+
+    margin-top: 14px;
+}
+
+.workflow-title h2 {
+    margin: 0;
+
+    color: #0f172a;
+
+    font-size: 2rem;
+    font-weight: 750;
+
+    letter-spacing: -0.5px;
+}
+
+.workflow-title p {
+    margin-top: 10px;
+
+    color: #64748b;
+
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+
+/* ================================
+   CARDS CONTAINER
+================================ */
+
+.workflow-info {
+    width: 100%;
+    max-width: 1120px;
+
+    margin-top: 50px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 24px;
+}
+
+
+/* ================================
+   CARD
+================================ */
+
+.workflow-card {
+    min-height: 215px;
+
+    padding: 35px 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+
+    box-shadow:
+        0 3px 10px rgba(15, 23, 42, 0.04);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* Subtle interaction because these are informational cards */
+
+.workflow-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(15, 23, 42, 0.07);
+}
+
+
+/* ================================
+   CARD TITLE
+================================ */
+
+.card-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 20px;
+}
+
+.card-title > div {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #eef0ff;
+
+    color: #6366f1;
+
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.card-title h3 {
+    margin: 0;
+
+    color: #0f172a;
+
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+
+/* ================================
+   CARD DESCRIPTION
+================================ */
+
+.card-info {
+    max-width: 330px;
+
+    margin-top: 13px;
+
+    color: #64748b;
+
+    font-size: 0.9rem;
+    line-height: 1.65;
+}
+
+
+/* ================================
+   TABLET
+================================ */
+
+@media (max-width: 900px) {
+
+    .workflow {
+        padding: 60px 6%;
+    }
+
+    .workflow-info {
+        grid-template-columns: 1fr;
+
+        max-width: 600px;
+
+        gap: 18px;
+
+        margin-top: 40px;
+    }
+
+    .workflow-card {
+        min-height: auto;
+
+        padding: 28px 30px;
+    }
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 600px) {
+
+    .workflow {
+        padding: 50px 20px 60px;
+    }
+
+    .workflow-title {
+        margin-top: 12px;
+    }
+
+    .workflow-title h2 {
+        font-size: 1.65rem;
+    }
+
+    .workflow-title p {
+        max-width: 350px;
+
+        font-size: 0.92rem;
+    }
+
+    .workflow-info {
+        margin-top: 32px;
+    }
+
+    .workflow-card {
+        padding: 26px 22px;
+    }
+
+    .card-title {
+        gap: 15px;
+    }
+
+    .card-title > div {
+        width: 40px;
+        height: 40px;
+    }
+
+    .card-title h3 {
+        font-size: 1rem;
+    }
+
+    .card-info {
+        font-size: 0.88rem;
+    }
+}
