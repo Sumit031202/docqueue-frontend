@@ -1,0 +1,315 @@
+/* =========================================
+   BENEFITS SECTION
+========================================= */
+
+.benefits {
+    width: 100%;
+    padding: 75px 8% 90px;
+
+    background: #ffffff;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* =========================================
+   BADGE
+========================================= */
+
+.benefits > .badge {
+    padding: 7px 14px;
+
+    background: #eef0ff;
+    border: 1px solid #e2e5ff;
+    border-radius: 9px;
+
+    color: #6366f1;
+
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    letter-spacing: 0.7px;
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.benefits-title {
+    margin-top: 14px;
+
+    text-align: center;
+}
+
+.benefits-title h2 {
+    margin: 0;
+
+    color: #0f172a;
+
+    font-size: 2rem;
+    font-weight: 750;
+
+    letter-spacing: -0.5px;
+}
+
+.benefits-title p {
+    margin: 10px 0 0;
+
+    color: #64748b;
+
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   BENEFITS CONTAINER
+========================================= */
+
+.benefits-info {
+    width: 100%;
+    max-width: 1120px;
+
+    margin-top: 52px;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 40px;
+}
+
+
+/* =========================================
+   BENEFIT CARD
+========================================= */
+
+.benefits-card {
+    position: relative;
+
+    padding: 40px 42px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 15px;
+
+    box-shadow:
+        0 3px 10px rgba(15, 23, 42, 0.035);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.benefits-card:hover {
+    transform: translateY(-3px);
+
+    border-color: #d8dcff;
+
+    box-shadow:
+        0 12px 28px rgba(15, 23, 42, 0.07);
+}
+
+
+/* =========================================
+   CARD TITLE
+========================================= */
+
+.benefits-card-title {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 28px;
+}
+
+.benefits-icon {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background: #eef0ff;
+
+    border-radius: 50%;
+
+    color: #6366f1;
+
+    font-size: 1.15rem;
+}
+
+.benefits-card-title h3 {
+    margin: 0;
+
+    color: #0f172a;
+
+    font-size: 1.35rem;
+    font-weight: 750;
+}
+
+
+/* =========================================
+   BENEFITS LIST
+========================================= */
+
+.benefits-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 19px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.benefits-list li {
+    display: grid;
+
+    grid-template-columns: 22px 1fr;
+
+    gap: 10px;
+
+    align-items: flex-start;
+}
+
+.benefits-list li > span {
+    padding-top: 1px;
+
+    color: #6366f1;
+
+    font-size: 1.15rem;
+    font-weight: 700;
+
+    line-height: 1.5;
+}
+
+.benefits-list p {
+    margin: 0;
+
+    color: #334155;
+
+    font-size: 0.92rem;
+    line-height: 1.55;
+}
+
+.benefits-list strong {
+    color: #0f172a;
+
+    font-weight: 700;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 950px) {
+
+    .benefits {
+        padding: 65px 6% 75px;
+    }
+
+    .benefits-info {
+        gap: 24px;
+    }
+
+    .benefits-card {
+        padding: 32px 28px;
+    }
+
+    .benefits-card-title h3 {
+        font-size: 1.2rem;
+    }
+
+    .benefits-list p {
+        font-size: 0.9rem;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .benefits {
+        padding: 55px 20px 65px;
+    }
+
+    .benefits-title h2 {
+        font-size: 1.65rem;
+    }
+
+    .benefits-title p {
+        max-width: 360px;
+
+        font-size: 0.92rem;
+    }
+
+    .benefits-info {
+        grid-template-columns: 1fr;
+
+        margin-top: 35px;
+
+        gap: 18px;
+    }
+
+    .benefits-card {
+        padding: 28px 24px;
+    }
+
+    .benefits-card-title {
+        margin-bottom: 24px;
+    }
+
+    .benefits-list {
+        gap: 17px;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 400px) {
+
+    .benefits {
+        padding: 45px 15px 55px;
+    }
+
+    .benefits-card {
+        padding: 24px 20px;
+    }
+
+    .benefits-icon {
+        width: 40px;
+        height: 40px;
+
+        font-size: 1rem;
+    }
+
+    .benefits-card-title h3 {
+        font-size: 1.1rem;
+    }
+
+    .benefits-list {
+        gap: 15px;
+    }
+
+    .benefits-list p {
+        font-size: 0.86rem;
+    }
+}
