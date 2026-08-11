@@ -37,33 +37,6 @@
     gap: 0;
 }
 
-
-/* Badge */
-
-.badge {
-    display: inline-flex;
-    align-items: center;
-
-    padding: 7px 13px;
-
-    margin-bottom: 32px;
-
-    background: #eef2ff;
-    border-radius: 9px;
-}
-
-.badge p {
-    margin: 0;
-
-    color: #6366f1;
-
-    font-size: 14px;
-    font-weight: 700;
-
-    letter-spacing: 0.5px;
-}
-
-
 /* Heading */
 
 .hero-content {
@@ -722,11 +695,7 @@
 
     .badge {
         margin-bottom: 23px;
-
         padding: 6px 11px;
-    }
-
-    .badge p {
         font-size: 11px;
     }
 

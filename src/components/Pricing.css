@@ -1,0 +1,512 @@
+/* =========================================
+   PRICING SECTION
+========================================= */
+
+.pricing {
+    width: 100%;
+
+    padding: 75px 8% 90px;
+
+    background: #ffffff;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.pricing-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    max-width: 650px;
+}
+
+/* Heading */
+
+.pricing-header h2 {
+    margin: 14px 0 0;
+
+    color: #0f172a;
+
+    font-size: 2rem;
+    font-weight: 750;
+
+    letter-spacing: -0.5px;
+}
+
+
+/* Description */
+
+.pricing-header > p {
+    margin: 9px 0 0;
+
+    max-width: 600px;
+
+    color: #64748b;
+
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   MAIN PRICING CARD
+========================================= */
+
+.pricing-card {
+    position: relative;
+
+    width: 100%;
+    max-width: 950px;
+
+    margin-top: 30px;
+
+    padding: 40px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1px 1.55fr;
+
+    gap: 52px;
+
+    background: #ffffff;
+
+    border: 2px solid #c7c9ff;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 12px 28px rgba(15, 23, 42, 0.07);
+}
+
+
+/* =========================================
+   FOUNDING MEMBER BADGE
+========================================= */
+
+.founding-badge {
+    position: absolute;
+
+    top: -2px;
+    right: -2px;
+
+    padding: 8px 20px;
+
+    background: #6366f1;
+
+    color: white;
+
+    border-radius: 0 18px 0 18px;
+
+    font-size: 0.7rem;
+    font-weight: 800;
+
+    letter-spacing: 0.7px;
+}
+
+
+/* =========================================
+   LEFT OFFER
+========================================= */
+
+.pricing-offer {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding: 5px 0;
+}
+
+
+/* Limited Release */
+
+.limited-badge {
+    width: max-content;
+
+    padding: 5px 11px;
+
+    background: #eef0ff;
+
+    border-radius: 5px;
+
+    color: #6366f1;
+
+    font-size: 0.7rem;
+    font-weight: 800;
+
+    letter-spacing: 0.8px;
+}
+
+
+/* Offer Heading */
+
+.pricing-offer h3 {
+    margin: 16px 0 8px;
+
+    color: #0f172a;
+
+    font-size: 1.55rem;
+    font-weight: 750;
+}
+
+
+/* Description */
+
+.offer-description {
+    max-width: 360px;
+
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 0.9rem;
+
+    line-height: 1.55;
+}
+
+
+/* =========================================
+   PRICE
+========================================= */
+
+.price {
+    display: flex;
+    align-items: baseline;
+
+    margin-top: 27px;
+
+    gap: 8px;
+}
+
+.price-value {
+    color: #0f172a;
+
+    font-size: 3rem;
+    font-weight: 800;
+
+    letter-spacing: -1.5px;
+}
+
+.price-period {
+    color: #64748b;
+
+    font-size: 0.95rem;
+}
+
+
+/* Billing */
+
+.billing-info {
+    margin: 2px 0 0;
+
+    color: #059669;
+
+    font-size: 0.8rem;
+    font-weight: 650;
+}
+
+
+/* =========================================
+   CTA BUTTON
+========================================= */
+
+.pricing-btn {
+    width: 100%;
+    max-width: 310px;
+
+    margin-top: 27px;
+
+    padding: 15px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: #6366f1;
+
+    color: white;
+
+    font-size: 0.95rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.pricing-btn span {
+    font-size: 1.25rem;
+
+    line-height: 1;
+}
+
+.pricing-btn:hover {
+    background: #5558e8;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(99, 102, 241, 0.2);
+}
+
+
+/* =========================================
+   DIVIDER
+========================================= */
+
+.pricing-divider {
+    width: 1px;
+
+    background: #e2e8f0;
+
+    align-self: stretch;
+}
+
+
+/* =========================================
+   FEATURES
+========================================= */
+
+.pricing-features {
+    display: flex;
+    flex-direction: column;
+
+    padding-top: 2px;
+}
+
+.pricing-features h4 {
+    margin: 0 0 16px;
+
+    color: #0f172a;
+
+    font-size: 0.85rem;
+    font-weight: 800;
+
+    letter-spacing: 0.2px;
+}
+
+
+/* =========================================
+   FEATURES GRID
+========================================= */
+
+.features-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+
+/* Feature */
+
+.feature-item {
+    min-height: 80px;
+
+    padding: 13px;
+
+    display: grid;
+
+    grid-template-columns: 18px 1fr;
+
+    gap: 8px;
+
+    align-items: start;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 9px;
+}
+
+
+/* Check */
+
+.feature-check {
+    color: #6366f1;
+
+    font-size: 1.05rem;
+    font-weight: 700;
+
+    line-height: 1.3;
+}
+
+
+/* Feature text */
+
+.feature-item strong {
+    display: block;
+
+    color: #0f172a;
+
+    font-size: 0.78rem;
+    font-weight: 750;
+
+    line-height: 1.35;
+}
+
+.feature-item p {
+    margin: 3px 0 0;
+
+    color: #64748b;
+
+    font-size: 0.72rem;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 950px) {
+
+    .pricing {
+        padding: 65px 6% 75px;
+    }
+
+    .pricing-card {
+        padding: 42px;
+
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+    .pricing-divider {
+        width: 100%;
+        height: 1px;
+    }
+
+    .pricing-offer {
+        align-items: center;
+
+        text-align: center;
+    }
+
+    .offer-description {
+        max-width: 500px;
+    }
+
+    .pricing-btn {
+        max-width: 320px;
+    }
+
+    .pricing-features {
+        padding: 0;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+    .pricing {
+        padding: 55px 20px 65px;
+    }
+
+    .pricing-header h2 {
+        font-size: 1.7rem;
+    }
+
+    .pricing-header > p {
+        font-size: 0.9rem;
+    }
+
+    .pricing-card {
+        margin-top: 38px;
+
+        padding: 38px 22px 25px;
+
+        border-radius: 16px;
+    }
+
+    .founding-badge {
+        padding: 7px 12px;
+
+        font-size: 0.6rem;
+
+        border-radius: 0 14px 0 14px;
+    }
+
+    .pricing-offer h3 {
+        font-size: 1.35rem;
+    }
+
+    .offer-description {
+        font-size: 0.86rem;
+    }
+
+    .price {
+        margin-top: 23px;
+    }
+
+    .price-value {
+        font-size: 2.6rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+    }
+
+    .feature-item {
+        min-height: auto;
+
+        padding: 13px;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 400px) {
+
+    .pricing {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .pricing-card {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .pricing-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .pricing-header > p {
+        font-size: 0.85rem;
+    }
+
+    .price-value {
+        font-size: 2.4rem;
+    }
+}

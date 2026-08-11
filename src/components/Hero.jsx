@@ -10,7 +10,7 @@ function Hero() {
                 <section className="hero-left">
                     <div className="badge">
                         {/* <span>IN</span> */}
-                        <p>MADE FOR CLINICS. BUILT FOR INDIA.</p>
+                        MADE FOR CLINICS. BUILT FOR INDIA.
                     </div>
                     <header className="hero-content">
                         <h1>

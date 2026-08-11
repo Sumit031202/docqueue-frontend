@@ -9,27 +9,6 @@
     align-items: center;
 }
 
-
-/* ================================
-   BADGE
-================================ */
-
-.workflow > .badge {
-    padding: 7px 14px;
-
-    background: #eef0ff;
-    border: 1px solid #e1e4ff;
-    border-radius: 9px;
-
-    color: #6366f1;
-
-    font-size: 0.8rem;
-    font-weight: 700;
-
-    letter-spacing: 0.7px;
-}
-
-
 /* ================================
    TITLE
 ================================ */
