@@ -1,7 +1,4 @@
-/* =========================================
-   PATIENT DASHBOARD
-   ========================================= */
-
+/* Patient Dashboard */
 * {
     box-sizing: border-box;
 }
@@ -10,25 +7,19 @@
     width: min(94%, 1200px);
     margin: 40px auto 60px;
     padding: 32px;
-    background: #ffffff;
 
     display: flex;
     flex-direction: column;
     gap: 24px;
 
+    background: #ffffff;
     color: #0f172a;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
-/* =========================================
-   DASHBOARD HEADER
-   ========================================= */
-
 .dashboard-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
 
     padding-bottom: 20px;
     border-bottom: 1px solid #e2e8f0;
@@ -56,56 +47,17 @@
     color: #0f172a;
 }
 
-
-/* =========================================
-   COMMON CARD
-   ========================================= */
-
 .card {
     background: #ffffff;
 
     border: 1px solid #e2e8f0;
     border-radius: 14px;
 
-    box-shadow:
-        0 4px 14px rgba(15, 23, 42, 0.04);
-
-    transition:
-        box-shadow 0.2s ease,
-        border-color 0.2s ease;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
 }
-
-
-/* =========================================
-   JOIN QUEUE CARD
-   ========================================= */
 
 .form-card {
-    position: relative;
-
     padding: 28px 30px;
-
-    border-radius: 14px;
-    border-color: #dbe4f0;
-
-    overflow: hidden;
-}
-
-/* Small purple accent in the top-left */
-
-.form-card::before {
-    content: "";
-
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 15px;
-    height: 15px;
-
-    background: #6366f1;
-
-    border-bottom-right-radius: 8px;
 }
 
 .form-header {
@@ -113,7 +65,7 @@
     align-items: center;
     gap: 10px;
 
-    margin-bottom: 24px;
+    margin-bottom: 22px;
 }
 
 .form-header .icon {
@@ -133,11 +85,6 @@
     color: #0f172a;
 }
 
-
-/* =========================================
-   INPUT + JOIN BUTTON
-   ========================================= */
-
 .input-group {
     display: flex;
     align-items: stretch;
@@ -148,15 +95,13 @@
     flex: 1;
     min-width: 0;
 
-    height: 60px;
-
-    padding: 0 20px;
+    height: 58px;
+    padding: 0 18px;
 
     border: 1px solid #d8e0ea;
     border-radius: 10px;
 
     background: #ffffff;
-
     color: #0f172a;
 
     font-size: 1rem;
@@ -175,13 +120,11 @@
 .input-group input:focus {
     border-color: #6366f1;
 
-    box-shadow:
-        0 0 0 3px rgba(99, 102, 241, 0.1);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
 }
 
 .join-btn {
-    height: 60px;
-
+    height: 58px;
     min-width: 175px;
 
     padding: 0 24px;
@@ -218,74 +161,30 @@
 
     transform: translateY(-1px);
 
-    box-shadow:
-        0 7px 16px rgba(99, 102, 241, 0.2);
+    box-shadow: 0 7px 16px rgba(99, 102, 241, 0.2);
 }
 
 .join-btn:active {
     transform: translateY(0);
 }
 
-
-/* =========================================
-   SUMMARY GRID
-   ========================================= */
-
 .dashboard-grid {
     display: grid;
-
     grid-template-columns: 1fr 1fr;
-
     gap: 24px;
 }
 
-
-/* =========================================
-   CURRENT PATIENT / WAITING CARDS
-   ========================================= */
-
 .current-patient-card,
 .waiting-count-card {
-    position: relative;
-
     min-height: 190px;
-
     padding: 30px;
-
-    overflow: hidden;
 }
 
-/* Purple corner accent */
-
-.current-patient-card::before,
-.waiting-count-card::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 14px;
-    height: 14px;
-
-    background: #6366f1;
-
-    border-bottom-right-radius: 7px;
-}
-
-
-/* Current patient */
-
-.current-patient-card {
-    border-color: #dfe5ee;
-}
-
-.current-patient-card .card-body-row {
+.current-patient-card .card-body-row,
+.waiting-count-card .card-body-row {
     display: flex;
     align-items: center;
     gap: 26px;
-
     height: 100%;
 }
 
@@ -298,7 +197,6 @@
     flex-shrink: 0;
 
     border-radius: 50%;
-
     border: 1px solid #dfe5ec;
 
     background: #f8fafc;
@@ -340,31 +238,8 @@
     color: #334155;
 }
 
-.current-patient-card .active-name:only-child {
-    color: #94a3b8;
-
-    font-style: italic;
-}
-
-
-/* =========================================
-   WAITING CARD
-   ========================================= */
-
 .waiting-count-card .card-body-row {
-    display: flex;
-    align-items: center;
-    gap: 26px;
-
     margin-top: 18px;
-}
-
-.waiting-count-card .card-accent-header {
-    color: #64748b;
-}
-
-.blue-bg {
-    background: #f8fafc;
 }
 
 .waiting-number-details {
@@ -393,39 +268,9 @@
     color: #64748b;
 }
 
-
-/* =========================================
-   LIVE QUEUE CARD
-   ========================================= */
-
 .queue-card {
-    position: relative;
-
     padding: 26px 30px;
-
-    overflow: hidden;
 }
-
-/* Purple corner */
-
-.queue-card::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 15px;
-    height: 15px;
-
-    background: #6366f1;
-
-    border-bottom-right-radius: 8px;
-}
-
-
-/* Queue header */
 
 .queue-title {
     display: flex;
@@ -454,11 +299,6 @@
     color: #0f172a;
 }
 
-
-/* =========================================
-   QUEUE LIST
-   ========================================= */
-
 .queue-card ol {
     display: flex;
     flex-direction: column;
@@ -482,8 +322,6 @@
     border-bottom: 1px solid #eef2f6;
 
     color: #334155;
-
-    font-size: 0.98rem;
 }
 
 .queue-card li:last-child {
@@ -516,9 +354,6 @@
     color: #334155;
 }
 
-
-/* Empty queue state */
-
 .queue-card > h4 {
     margin: 20px 0;
 
@@ -539,11 +374,6 @@
     font-style: italic;
 }
 
-
-/* =========================================
-   RESPONSIVE
-   ========================================= */
-
 @media (max-width: 900px) {
 
     .patient-dashboard-container {
@@ -560,8 +390,10 @@
         flex-direction: column;
     }
 
+    .input-group input,
     .join-btn {
         width: 100%;
+        min-height: 58px;
     }
 }
 
@@ -594,7 +426,7 @@
     }
 
 
-    /* Join card */
+    /* Join Queue */
 
     .form-card {
         padding: 22px 18px;
@@ -604,14 +436,18 @@
         margin-bottom: 18px;
     }
 
-    .input-group input {
-        height: 54px;
-
-        font-size: 0.95rem;
+    .input-group {
+        gap: 12px;
     }
 
+    .input-group input,
     .join-btn {
-        height: 54px;
+        height: 58px;
+    }
+
+    .input-group input {
+        padding: 0 16px;
+        font-size: 0.95rem;
     }
 
 
@@ -620,7 +456,6 @@
     .current-patient-card,
     .waiting-count-card {
         min-height: 160px;
-
         padding: 24px 20px;
     }
 
@@ -632,7 +467,6 @@
     .avatar {
         width: 64px;
         height: 64px;
-
         padding: 16px;
     }
 
@@ -657,9 +491,7 @@
 
     .queue-card li {
         min-height: 54px;
-
         gap: 14px;
-
         padding: 10px 4px;
     }
 
@@ -672,7 +504,6 @@
         font-size: 0.92rem;
     }
 }
-
 
 @media (max-width: 400px) {
 
@@ -696,7 +527,6 @@
     .avatar {
         width: 58px;
         height: 58px;
-
         padding: 14px;
     }
 
