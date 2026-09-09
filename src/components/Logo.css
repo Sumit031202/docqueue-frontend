@@ -1,7 +1,7 @@
 .logo{
     display:flex;
     align-items:center;
-    gap:12px;
+    gap:5px;
 }
 
 .logo img{
@@ -13,4 +13,16 @@
     font-size:1.6rem;
     font-weight:700;
     color:#2b2d34;
+}
+@media(max-width:550px){
+    .logo{
+        gap:1px;
+    }
+    .logo img{
+        width:35px;
+        height: 35px;
+    }
+    .logo h2{
+        font-size:1.3rem;
+    }
 }
