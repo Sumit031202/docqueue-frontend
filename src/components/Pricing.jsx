@@ -36,7 +36,6 @@ function Pricing() {
 
                     <p className="offer-description">
                         Get DocQueue for ₹299/month for your first 12 months.
-                        Limited to the first 100 clinics
                     </p>
 
                     <div className="price">
