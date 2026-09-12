@@ -25,8 +25,6 @@ function PatientDashboard() {
         eventSource.addEventListener("Queue-Update", (e) => {
             const queue = JSON.parse(e.data);
             console.log("hello")
-            // console.log(data);
-            // console.log(data.length);
             setLiveCount(queue.length);
             setWaitingQueue(queue);
         })
@@ -104,7 +102,7 @@ function PatientDashboard() {
 
                             {activePatient.fullName !== "Nobody" ? (
                                 <>
-                                    <div className="active-token">#{activePatient.id}</div>
+                                    {/* <div className="active-token">#{activePatient.id}</div> */}
                                     <div className="active-name">{activePatient.fullName}</div>
                                 </>
                             ) : (
@@ -140,9 +138,9 @@ function PatientDashboard() {
                                             <div className="token-no">12</div>
                                             <div className="patient-name">Ravi Kumar</div> 
                                         </li> */}
-                                        {waitingQueue.map((patient)=>{
+                                        {waitingQueue.map((patient,index)=>{
                                             return <li key={patient.id}>
-                                                <div className="token-no">{patient.id}</div>
+                                                <div className="token-no">{index+1}</div>
                                                 <div className="patient-name">{patient.fullName}</div>
                                             </li>
                                         })}
