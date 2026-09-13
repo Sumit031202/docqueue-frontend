@@ -1,5 +1,5 @@
 import "./Hero.css"
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import arrow from "../assets/arrow.svg"
 
 function Hero() {
@@ -29,10 +29,10 @@ function Hero() {
                             <span>🔍</span>
                             Find Clinics
                         </button>
-                        <button className="secondary-btn">
-                            Register Clinic
+                        <Link to="/register" className="secondary-btn">
+                                Register Clinic
                             <span><img src={arrow} alt="arrow" /></span>
-                        </button>
+                        </Link>
                     </div>
                     <ul className="trust-points">
                         <li>
