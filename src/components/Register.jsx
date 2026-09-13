@@ -4,8 +4,50 @@ import { Link } from "react-router-dom"
 import time from "../assets/time.svg"
 import queue from "../assets/queue.svg"
 import grow from "../assets/grow.svg"
+import { useState } from "react"
 
 function Register({onLoginClick}){
+    const [fullName,setFullName]=useState("");
+    const [specialization,setSpecialization]=useState("");
+    const [email,setEmail]=useState("");
+    const [password,setPassword]=useState("");
+    const [confirmPassword,setConfirmPassword]=useState("");
+
+    const handleRegister=async(e)=>{
+        e.preventDefault();
+        if(confirmPassword!==password){
+            return;
+        }
+        // used it for debugging
+        // console.log({
+        //     name: fullName,
+        //     specialization: specialization,
+        //     email: email,
+        //     password: password
+        // });
+        const response=await fetch("https://api.docqueue.online/api/auth/register",{
+            method:"POST",
+
+            headers:{
+                "Content-Type":"application/json"
+            },
+
+            body: JSON.stringify({
+                name: fullName,
+                specialization: specialization,
+                email: email,
+                password: password,
+            })
+        });
+        const data=await response.json();
+        // console.log(data);
+        setFullName("");
+        setSpecialization("");
+        setEmail("");
+        setPassword("");
+        setConfirmPassword("");
+    }
+
     return(
         <div className={styles.registerPage}>  
             <header className={styles.header}>
@@ -51,17 +93,17 @@ function Register({onLoginClick}){
                         <p>Fill in the details below to get started.</p>
                     </div>
                     
-                    <form className={styles.form}>
+                    <form className={styles.form} onSubmit={handleRegister}>
                         <label htmlFor="fullname">Full Name</label>
-                        <input id="fullname" type="text" name="fullname"/>
+                        <input id="fullname" type="text" name="fullname" onChange={(e)=>setFullName(e.target.value)} value={fullName}/>
                         <label htmlFor="specialization">Specialization</label>
-                        <input id="specialization" type="text" name="specialization"/>
+                        <input id="specialization" type="text" name="specialization" onChange={(e)=>setSpecialization(e.target.value)} value={specialization}/>
                         <label htmlFor="email">Email</label>
-                        <input id="email" type="email" name="email" />
+                        <input id="email" type="email" name="email" onChange={(e)=>setEmail(e.target.value)} value={email}/>
                         <label htmlFor="password">Password</label>
-                        <input type="password" name="password" id="password" />
+                        <input type="password" name="password" id="password" onChange={(e)=>setPassword(e.target.value)} value={password}/>
                         <label htmlFor="confirmPassword">Confirm Password</label>
-                        <input type="password" name="confirmPassword" id="confirmPassword" />
+                        <input type="password" name="confirmPassword" id="confirmPassword" onChange={(e)=>setConfirmPassword(e.target.value)} value={confirmPassword}/>
                         <button type="submit">
                             Create Account
                         </button>
