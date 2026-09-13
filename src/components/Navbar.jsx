@@ -1,6 +1,6 @@
 import Logo from "./Logo"
 import "./Navbar.css"
-function Navbar(){
+function Navbar({onLoginClick}){
     return(
         <header className='navbar'>
             <Logo/>
@@ -14,7 +14,7 @@ function Navbar(){
                 </ul>
             </nav>
 
-            <button className='login-btn'>
+            <button onClick={onLoginClick} className='login-btn'>
                 Doctor Login →
             </button>
         </header>

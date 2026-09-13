@@ -5,12 +5,12 @@ import time from "../assets/time.svg"
 import queue from "../assets/queue.svg"
 import grow from "../assets/grow.svg"
 
-function Register(){
+function Register({onLoginClick}){
     return(
         <div className={styles.registerPage}>  
             <header className={styles.header}>
                 <Logo/>
-                <div className={styles.login}>Already have an account? <Link to="/login">Login</Link></div>
+                <div className={styles.login}>Already have an account? <Link onClick={onLoginClick}>Login</Link></div>
             </header>
             <main className={styles.main}>
                 <section className={styles.left}>
