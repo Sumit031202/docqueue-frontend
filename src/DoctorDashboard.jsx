@@ -44,8 +44,13 @@ function DoctorDashboard(){
     const callNextPatient=async()=>{
         
         try{
-            const response=await fetch(`${baseURL}/api/doctors/next`,{
-            method:"PUT"
+            // console.log(`${baseURL}/api/doctors/${doctorId}/next`);
+            // console.log(localStorage.getItem("token"));
+            const response=await fetch(`${baseURL}/api/doctors/${doctorId}/next`,{
+            method:"POST",
+            headers:{
+                "Authorization":`Bearer ${localStorage.getItem("token")}`
+            }
             })
             if(!response.ok){
                 let errorMessage=await response.text();
