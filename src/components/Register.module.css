@@ -123,10 +123,10 @@
 }
 
 .benefits li img {
-    width: 42px;
-    height: 42px;
+    width: 50px;
+    height: 50px;
     flex-shrink: 0;
-    padding: 10px;
+    padding:7px;
     border-radius: 50%;
     background: #e7e8ff;
 }
@@ -280,6 +280,14 @@
     background-image: radial-gradient(#dfe2ff 2px, transparent 2px);
     background-size: 12px 12px;
     opacity: 0.75;
+}
+
+.inputError {
+    margin-top: -10px;
+    margin-bottom: 12px;
+    color: #dc2626;
+    font-size: 12px;
+    font-weight: 500;
 }
 
 @media (min-width: 1600px) {
