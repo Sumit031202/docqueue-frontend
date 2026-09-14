@@ -10,7 +10,7 @@ import DoctorDashboard from "./DoctorDashboard";
 
 function AppContent(){
   const location=useLocation();
-  const hideNavbar=location.pathname.startsWith('/patients') || location.pathname.startsWith('/register') 
+  const hideNavbar=location.pathname.startsWith('/patients') || location.pathname.startsWith('/register') || location.pathname.startsWith("/doctor-dashboard")
   const [isLoginOpen,setIsLoginOpen]=useState(false);
   return(
   <>

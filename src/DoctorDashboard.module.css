@@ -1,0 +1,367 @@
+.doctorDashboard {
+    width: min(1100px, 92vw);
+    margin: 40px auto;
+    padding: 32px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    box-shadow: 0 10px 35px rgba(15, 23, 42, .06);
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    color: #0f172a
+}
+
+.dashboardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #e5e7eb
+}
+
+.dashboardTitle {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    color: #0f172a
+}
+
+.dashboardHeader p {
+    margin: 6px 0 0;
+    color: #64748b;
+    font-size: .9rem
+}
+
+.headerStatus {
+    display: flex;
+    align-items: center
+}
+
+.statusLive {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #16a34a;
+    font-size: .9rem;
+    font-weight: 600
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: #16a34a;
+    border-radius: 50%;
+    display: inline-block
+}
+
+.dashboardMain {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(240px, 1fr);
+    gap: 20px
+}
+
+.currentPatientCard {
+    min-height: 190px;
+    padding: 28px;
+    border: 1px solid #e0e7ff;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
+    display: flex;
+    align-items: center;
+    gap: 22px
+}
+
+.avatar {
+    width: 64px;
+    height: 64px;
+    padding: 15px;
+    border-radius: 16px;
+    background: #eef0ff;
+    flex-shrink: 0
+}
+
+.activePatientInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px
+}
+
+.activePatientLabel {
+    margin: 0;
+    color: #6366f1;
+    font-size: .8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em
+}
+
+.activeToken {
+    font-size: 2.4rem;
+    line-height: 1;
+    font-weight: 750;
+    color: #6366f1;
+    letter-spacing: -.04em
+}
+
+.name {
+    font-size: 1.25rem;
+    font-weight: 650;
+    color: #0f172a
+}
+
+.emptyPatient {
+    margin: 0;
+    color: #64748b;
+    font-size: .95rem
+}
+
+.nextPatientCard {
+    display: flex;
+    align-items: stretch
+}
+
+.nextBtn {
+    width: 100%;
+    min-height: 190px;
+    padding: 28px;
+    border: 0;
+    border-radius: 16px;
+    background: #6366f1;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    text-align: left;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease
+}
+
+.nextBtn:hover:not(:disabled) {
+    background: #5558e8;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, .2)
+}
+
+.nextBtn:active:not(:disabled) {
+    transform: translateY(0)
+}
+
+.nextBtn:disabled {
+    background: #c7c9f7;
+    cursor: not-allowed
+}
+
+.nextBtnContent {
+    display: flex;
+    flex-direction: column;
+    gap: 7px
+}
+
+.nextBtnContent::before {
+    content: "QUEUE ACTION";
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    opacity: .75
+}
+
+.nextBtnContent::after {
+    content: "Call the next patient";
+    font-size: 1.25rem;
+    font-weight: 700
+}
+
+.nextBtnArrow {
+    align-self: flex-end;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .15);
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.nextBtnArrow img {
+    width: 19px;
+    height: 19px;
+    filter: brightness(0) invert(1)
+}
+
+.queueCard {
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    background: #fff;
+    overflow: hidden
+}
+
+.queueTitle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 22px;
+    border-bottom: 1px solid #e5e7eb
+}
+
+.queueIcon {
+    width: 20px;
+    height: 20px
+}
+
+.queueTitleText {
+    font-size: .95rem;
+    font-weight: 700;
+    color: #0f172a
+}
+
+.queueList {
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+
+.queueItem {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 16px 22px;
+    border-bottom: 1px solid #f1f5f9;
+    transition: background .15s ease
+}
+
+.queueItem:last-child {
+    border-bottom: 0
+}
+
+.queueItem:hover {
+    background: #f8fafc
+}
+
+.tokenNo {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: #eef0ff;
+    color: #6366f1;
+    font-size: .9rem;
+    font-weight: 700;
+    flex-shrink: 0
+}
+
+.patientName {
+    font-size: .95rem;
+    font-weight: 600;
+    color: #334155
+}
+
+.emptyQueue {
+    min-height: 150px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    font-size: .9rem;
+    text-align: center
+}
+
+.errorMessage {
+    padding: 12px 16px;
+    border: 1px solid #fecaca;
+    border-radius: 10px;
+    background: #fef2f2;
+    color: #dc2626;
+    font-size: .85rem
+}
+
+@media(max-width:800px) {
+    .doctorDashboard {
+        width: calc(100% - 24px);
+        margin: 20px auto;
+        padding: 20px;
+        border-radius: 16px;
+        gap: 20px
+    }
+
+    .dashboardHeader {
+        padding-bottom: 20px
+    }
+
+    .dashboardTitle {
+        font-size: 1.35rem
+    }
+
+    .dashboardMain {
+        grid-template-columns: 1fr
+    }
+
+    .currentPatientCard,
+    .nextBtn {
+        min-height: 160px
+    }
+
+    .currentPatientCard {
+        padding: 22px
+    }
+
+    .nextBtn {
+        padding: 22px
+    }
+}
+
+@media(max-width:480px) {
+    .doctorDashboard {
+        width: calc(100% - 16px);
+        padding: 16px
+    }
+
+    .dashboardHeader {
+        align-items: flex-start
+    }
+
+    .dashboardTitle {
+        font-size: 1.2rem
+    }
+
+    .dashboardHeader p {
+        font-size: .8rem
+    }
+
+    .currentPatientCard {
+        gap: 16px;
+        padding: 18px
+    }
+
+    .avatar {
+        width: 52px;
+        height: 52px;
+        padding: 12px;
+        border-radius: 13px
+    }
+
+    .activeToken {
+        font-size: 1.8rem
+    }
+
+    .name {
+        font-size: 1.1rem
+    }
+
+    .queueItem {
+        padding: 14px 16px
+    }
+
+    .queueTitle {
+        padding: 17px 16px
+    }
+
+    .nextBtn {
+        min-height: 145px
+    }
+}
