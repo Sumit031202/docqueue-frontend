@@ -6,6 +6,7 @@ import { BrowserRouter,Routes,Route,useLocation } from "react-router-dom";
 import Register from "./components/Register";
 import { useState } from "react";
 import DoctorLogin from "./components/DoctorLogin";
+import DoctorDashboard from "./DoctorDashboard";
 
 function AppContent(){
   const location=useLocation();
@@ -20,6 +21,7 @@ function AppContent(){
       <Route path="/patients/:doctorId" element={<PatientDashboard/>}></Route>
       <Route path="/register" element={<Register
       onLoginClick={()=>setIsLoginOpen(true)}/>}></Route>
+      <Route path="doctor-dashboard" element={<DoctorDashboard/>}/>
     </Routes>
     {isLoginOpen && (
       <DoctorLogin onClose={()=>setIsLoginOpen(false)}/>

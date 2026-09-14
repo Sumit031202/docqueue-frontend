@@ -131,6 +131,18 @@
     transform: translateY(1px);
 }
 
+.inputError {
+    margin: 4px 0 8px;
+    color: #dc2626;
+    font-size: 13px;
+}
+
+.loginError {
+    margin: 8px 0;
+    color: #dc2626;
+    font-size: 14px;
+}
+
 @media (max-width: 500px) {
     .loginPage {
         max-width: 100%;
