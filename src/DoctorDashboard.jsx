@@ -3,9 +3,10 @@ import avatar from "./assets/user.svg"
 import queue from "./assets/queue.svg"
 import arrow from "./assets/arrow.svg"
 import "./DoctorDashboard.css"
+import { useParams } from "react-router-dom";
 
 function DoctorDashboard(){
-
+    const {doctorId}=useParams()
     const baseURL="https://api.docqueue.online"
     const [activePatient,setActivePatient]=useState({"fullName":"Nobody"})
     const [errorMessage,setErrorMessage]=useState("")
@@ -14,7 +15,7 @@ function DoctorDashboard(){
 
     // live queue
     useEffect(()=>{
-        const eventSource=new EventSource(`${baseURL}/api/patients/stream`);
+        const eventSource=new EventSource(`${baseURL}/api/patients/stream?doctorId=${doctorId}`);
         eventSource.addEventListener("Queue-Update",e=>{
             const queue=JSON.parse(e.data);
             console.log(queue);

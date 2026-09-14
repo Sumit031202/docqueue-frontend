@@ -21,7 +21,7 @@ function AppContent(){
       <Route path="/patients/:doctorId" element={<PatientDashboard/>}></Route>
       <Route path="/register" element={<Register
       onLoginClick={()=>setIsLoginOpen(true)}/>}></Route>
-      <Route path="doctor-dashboard" element={<DoctorDashboard/>}/>
+      <Route path="doctor-dashboard/:doctorId" element={<DoctorDashboard/>}/>
     </Routes>
     {isLoginOpen && (
       <DoctorLogin onClose={()=>setIsLoginOpen(false)}/>

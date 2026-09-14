@@ -45,17 +45,19 @@ function DoctorLogin({onClose}){
                     })
                 }
             );
-            const data=await response.text();
+            const data=await response.json();
             if(!response.ok){
+                console.log(response);
                 setLoginError(data || "Invalid email or password")
                 return;
             }
 
             // save JWT returned by backend
-            localStorage.setItem("token",data);
+            localStorage.setItem("token",data.token);
 
             onClose();
-            navigate("/doctor-dashboard");
+            console.log(data.doctorId);
+            navigate(`/doctor-dashboard/${data.doctorId}`);
             
         }catch(error){
             console.error("Login failed: ",error);
