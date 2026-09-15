@@ -1,6 +1,38 @@
 import Logo from "./Logo"
 import "./Navbar.css"
-function Navbar({onLoginClick}){
+import { useNavigate } from "react-router-dom";
+function Navbar({onLoginClick,offLoginClick}){
+    const navigate=useNavigate();
+
+    const handleDoctorLogin=()=>{
+        try{
+            const id=localStorage.getItem("doctorId");
+            const token=localStorage.getItem("token");
+            if(token && id){
+                const parts=token.split(".");
+                const payload=JSON.parse(atob(parts[1]));
+                // console.log(id);
+                // console.log(payload);
+                // console.log(payload.exp);
+                const currTime=Date.now()/1000; // in seconds
+                if(payload.exp>currTime){
+                    offLoginClick();
+                    navigate(`/doctor-dashboard/${id}`)
+                }else{
+                    throw Error("Expired token found, login again");
+                }
+            }else{
+                onLoginClick();
+            }
+        }catch(error){
+            console.error(error);
+            localStorage.removeItem("token");
+            localStorage.removeItem("doctorId");
+            onLoginClick();
+        }
+    }
+    
+
     return(
         <header className='navbar'>
             <Logo/>
@@ -14,7 +46,7 @@ function Navbar({onLoginClick}){
                 </ul>
             </nav>
 
-            <button onClick={onLoginClick} className='login-btn'>
+            <button onClick={handleDoctorLogin} className='login-btn'>
                 Doctor Login →
             </button>
         </header>

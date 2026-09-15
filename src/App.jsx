@@ -14,7 +14,7 @@ function AppContent(){
   const [isLoginOpen,setIsLoginOpen]=useState(false);
   return(
   <>
-    {!hideNavbar && <Navbar onLoginClick={()=>setIsLoginOpen(true)}/>}
+    {!hideNavbar && <Navbar onLoginClick={()=>setIsLoginOpen(true)} offLoginClick={()=>setIsLoginOpen(false)}/>}
     <Routes>
       <Route path="/" element={<LandingPage/>}></Route>
       <Route path="/find-clinics" element={<FindClinics/>}></Route>

@@ -52,8 +52,9 @@ function DoctorLogin({onClose}){
                 return;
             }
 
-            // save JWT returned by backend
+            // save JWT and id returned by backend
             localStorage.setItem("token",data.token);
+            localStorage.setItem("doctorId",data.doctorId);
 
             onClose();
             console.log(data.doctorId);
