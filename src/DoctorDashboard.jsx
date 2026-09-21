@@ -4,6 +4,14 @@ import queue from "./assets/queue.svg"
 import arrow from "./assets/arrow.svg"
 import styles from "./DoctorDashboard.module.css"
 import { useParams } from "react-router-dom";
+import Logo from "./components/Logo";
+import shutdown from './assets/shutdown.svg'
+import clock from './assets/clock.svg'
+import cancel from "./assets/cancel.svg"
+import info from "./assets/info.svg"
+import edit from "./assets/edit.svg"
+import pause from "./assets/pause.svg"
+import play from "./assets/play.svg"
 
 function DoctorDashboard(){
     const {doctorId}=useParams()
@@ -67,54 +75,108 @@ function DoctorDashboard(){
         <div className={styles.doctorDashboard}>
             <div className={styles.dashboardHeader}>
                 <div>
-                    <h2 className={styles.dashboardTitle}>Doctor Dashboard</h2>
-                    <p>Manage your live patient queue</p>
+                    <Logo/>
                 </div>
                 <div className={styles.headerStatus}>
-                    <span className={styles.statusLive}>
-                        <span className={styles.dot}></span>
-                        Live
-                    </span>
-                </div>
-            </div>
-            <div className={styles.dashboardMain}>
-                <div className={styles.currentPatientCard}>
-                    <img className={styles.avatar} src={avatar} alt="" />
-                    {activePatient.fullName!=="Nobody"?
-                    <div className={styles.activePatientInfo}>
-                        <p className={styles.activePatientLabel}>Currently Serving</p>
-                        {/* <div className={styles.activeToken}>#{activePatient.id}</div> */}
-                        <div className={styles.name}>{activePatient.fullName}</div>
-                    </div>
-                    :<p className={styles.emptyPatient}>No active patient</p>}
-                </div>
-                <div className={styles.nextPatientCard}>
-                    <button className={styles.nextBtn} onClick={callNextPatient} disabled={waitingQueue.length===0}>
-                        <div className={styles.nextBtnContent}></div>
-                        <div className={styles.nextBtnArrow}><img src={arrow} alt="" /></div>
+                    <button className={styles.onOff}>
+                        <img className={styles.logo} src={shutdown} alt="on/off" />
                     </button>
                 </div>
             </div>
-            <div className={styles.queueCard}>
-                {waitingQueue.length===0?
-                <div className={styles.emptyQueue}>No Patients are in Queue</div>:
-                <>
-                    <div className={styles.queueTitle}>
-                        <img className={styles.queueIcon} src={queue} alt="" />
-                        <div className={styles.queueTitleText}>Live Queue ({waitingQueue.length})</div>
+            <div className={styles.sessionOverview}>
+                <div className={styles.sessionDetails}>
+                    <p>Today's Clinic Session</p>
+                    <h3>Wed, 17 Sept 2026</h3>
+                    <div className={styles.badge}>Session Active</div>
+                </div>
+                <div className={styles.clinicTimings}>
+                    <p>
+                        <img src={clock} alt="clock" />
+                        Clinic Timings
+                    </p>
+                    <div>
+                        <h3>10:00 AM - 01:00 PM</h3>
+                        <button><img src={edit} alt="edit" />Update</button>
                     </div>
-                    <ol className={styles.queueList}>
-                        {waitingQueue.map((patient,index)=>{
-                            return(
-                                <li className={styles.queueItem} key={patient.id}>
-                                    <div className={styles.tokenNo}>{index+1}</div>
-                                    <div className={styles.patientName}>{patient.fullName}</div>
-                                </li>
-                            )
-                        })}
-                    </ol>
-                </>
-                }
+                    <p>You can update the timings anytime. The session will follow the latest timings.</p>
+                </div>
+                <div className={styles.sessionControl}>
+                    <p>Session Control</p>
+                    <button><img src={pause} alt="play/pause"/>Pause Session</button>
+                    <p>Take a break. You can resume anytime.</p>
+                </div>
+            </div>
+            <div className={styles.dashboardMain}>
+                <div className={styles.liveQueue}>
+                    <div className={styles.waitingCard}>
+                        <img className={styles.logo} src={queue} alt="" />
+                        <div className={styles.cardDetails}>
+                            <h3>6</h3>
+                            <p>Patients Waiting</p>
+                        </div>
+                    </div>
+                    <div className={styles.currentPatientCard}>
+                        <img className={styles.logo} src={avatar} alt="user" />
+                        <div className={styles.cardDetails}>
+                            <h3>Om Burnwal</h3>
+                            <p>Currently Serving</p>
+                        </div>
+                    </div>
+                    <div className={styles.avgWaitingCard}>
+                        <img className={styles.logo} src={clock} alt="waiting" />
+                        <div className={styles.cardDetails}>
+                            <h3>~12</h3>
+                            <p>Average Waiting Time</p>
+                        </div>
+                    </div>
+                </div>
+                <div className={styles.currentPatientPanel}>
+                    <h3>Current Patient</h3>
+                    <div>
+                        <img src={avatar} alt="user" />
+                        <div className={styles.activePatient}>Om Burnwal</div>
+                        <button><img src={cancel} alt="cancel" />Mark as No Show</button>
+                    </div>
+                </div>
+            </div>
+            <div className={styles.queueSection}>
+                <div className={styles.queueCard}>
+                    {waitingQueue.length===0?
+                    <div className={styles.emptyQueue}>No Patients are in Queue</div>:
+                    <>
+                        <div className={styles.queueTitle}>
+                            <img className={styles.queueIcon} src={queue} alt="" />
+                            <div className={styles.queueTitleText}>Live Queue ({waitingQueue.length})</div>
+                        </div>
+                        <ol className={styles.queueList}>
+                            {waitingQueue.map((patient,index)=>{
+                                return(
+                                    <li className={styles.queueItem} key={patient.id}>
+                                        <div className={styles.tokenNo}>{index+1}</div>
+                                        <div className={styles.patientName}>{patient.fullName}</div>
+                                    </li>
+                                )
+                            })}
+                        </ol>
+                    </>
+                    }
+                </div>
+                <div className={styles.queueActions}>
+                    <div className={styles.nextPatientCard}>
+                        <button className={styles.nextBtn} onClick={callNextPatient} disabled={waitingQueue.length===0}>
+                            <div className={styles.nextBtnContent}>Call Next Patient</div>
+                            <div className={styles.nextBtnArrow}><img src={play} alt="" /></div>
+                        </button>
+                    </div>
+                    <div className={styles.infoCard}>
+                        <img src={info} alt="information" />
+                        <p>
+                            Use Pause if you're taking a short break.
+                            Use Mark as No Show if the current patient is not present.
+                            Use End Session only when the clinic is finished for the day.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     )

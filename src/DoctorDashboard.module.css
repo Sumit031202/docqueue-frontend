@@ -1,367 +1,859 @@
 .doctorDashboard {
-    width: min(1100px, 92vw);
-    margin: 40px auto;
-    padding: 32px;
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    border-radius: 20px;
-    box-shadow: 0 10px 35px rgba(15, 23, 42, .06);
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-    color: #0f172a
+    min-height: 100vh;
+    width: 100%;
+    padding: 24px 32px 40px;
+    background: #f8f9fc;
+    color: #111936;
+    font-family: "Inter", "Segoe UI", sans-serif;
+    box-sizing: border-box;
+}
+
+.doctorDashboard * {
+    box-sizing: border-box;
 }
 
 .dashboardHeader {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    min-height: 48px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 24px;
-    border-bottom: 1px solid #e5e7eb
-}
-
-.dashboardTitle {
-    margin: 0;
-    font-size: 1.6rem;
-    font-weight: 700;
-    letter-spacing: -.02em;
-    color: #0f172a
-}
-
-.dashboardHeader p {
-    margin: 6px 0 0;
-    color: #64748b;
-    font-size: .9rem
 }
 
 .headerStatus {
     display: flex;
-    align-items: center
+    align-items: center;
+    justify-content: center;
 }
 
-.statusLive {
+.onOff {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    border: 1px solid #d8ddec;
+    border-radius: 12px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.onOff:hover {
+    border-color: #c7ccdf;
+    box-shadow: 0 8px 20px rgba(53, 63, 104, 0.08);
+    transform: translateY(-1px);
+}
+
+.onOff .logo {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+.onOff::after {
+    content: "End Session";
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    padding: 7px 12px;
+    border-radius: 7px;
+    background: #4d5876;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: all 0.2s ease;
+    z-index: 20;
+}
+
+.onOff:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.sessionOverview {
+    width: 100%;
+    max-width: 1440px;
+    margin: 24px auto 0;
+    min-height: 186px;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 0.95fr 1.4fr 0.8fr;
+    background: #ffffff;
+    border: 1px solid #e3e7f0;
+    border-radius: 17px;
+    box-shadow: 0 8px 24px rgba(44, 56, 95, 0.03);
+}
+
+.sessionDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 30px;
+}
+
+.sessionDetails > p {
+    margin: 0 0 10px;
+    color: #667292;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.sessionDetails h3 {
+    margin: 0;
+    color: #101735;
+    font-size: 28px;
+    line-height: 1.2;
+    font-weight: 750;
+}
+
+.badge {
+    width: fit-content;
+    margin-top: 18px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: #e8f7ee;
+    color: #09833a;
+    font-size: 15px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.badge::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #079b45;
+}
+
+.clinicTimings {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 38px;
+    border-left: 1px solid #dfe4ee;
+    border-right: 1px solid #dfe4ee;
+}
+
+.clinicTimings > p:first-child {
+    margin: 0 0 7px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    color: #657193;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.clinicTimings > p:first-child img {
+    width: 27px;
+    height: 27px;
+    object-fit: contain;
+}
+
+.clinicTimings > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.clinicTimings h3 {
+    margin: 0;
+    color: #101735;
+    font-size: 27px;
+    font-weight: 750;
+    white-space: nowrap;
+}
+
+.clinicTimings > div button {
+    flex-shrink: 0;
+    min-height: 44px;
+    padding: 0 17px;
+    border: none;
+    border-radius: 10px;
+    background: #eef0ff;
+    color: #514ff3;
     display: flex;
     align-items: center;
     gap: 8px;
-    color: #16a34a;
-    font-size: .9rem;
-    font-weight: 600
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
-.dot {
-    width: 8px;
-    height: 8px;
-    background: #16a34a;
-    border-radius: 50%;
-    display: inline-block
+.clinicTimings > div button:hover {
+    background: #e4e6ff;
+}
+
+.clinicTimings > div button img {
+    width: 17px;
+    height: 17px;
+    object-fit: contain;
+}
+
+.clinicTimings > p:last-child {
+    margin: 14px 0 0;
+    color: #71809d;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.sessionControl {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 38px;
+}
+
+.sessionControl > p:first-child {
+    margin: 0 0 14px;
+    color: #64708f;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.sessionControl button {
+    width: 100%;
+    min-height: 56px;
+    border: 1px solid #cdebd9;
+    border-radius: 10px;
+    background: #ebf8f0;
+    color: #087d38;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    font-size: 17px;
+    font-weight: 750;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sessionControl button:hover {
+    background: #e1f5e8;
+}
+
+.sessionControl button img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.sessionControl > p:last-child {
+    margin: 11px 0 0;
+    color: #70809e;
+    font-size: 14px;
+    line-height: 1.45;
 }
 
 .dashboardMain {
+    width: 100%;
+    max-width: 1440px;
+    margin: 22px auto 0;
     display: grid;
-    grid-template-columns: minmax(0, 2fr) minmax(240px, 1fr);
-    gap: 20px
+    grid-template-columns: minmax(0, 1.55fr) minmax(360px, 1fr);
+    gap: 14px;
 }
 
-.currentPatientCard {
+.liveQueue {
+    position: relative;
     min-height: 190px;
-    padding: 28px;
-    border: 1px solid #e0e7ff;
-    border-radius: 16px;
-    background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
+    padding: 54px 20px 20px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    background: #ffffff;
+    border: 1px solid #e3e7f0;
+    border-radius: 17px;
+    box-shadow: 0 8px 24px rgba(44, 56, 95, 0.03);
+}
+
+.liveQueue::before {
+    content: "Live Queue Status";
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #101735;
+    font-size: 20px;
+    font-weight: 750;
+}
+
+.waitingCard,
+.currentPatientCard,
+.avgWaitingCard {
+    min-width: 0;
+    min-height: 102px;
+    padding: 14px;
     display: flex;
     align-items: center;
-    gap: 22px
+    gap: 16px;
+    border: 1px solid #e3e7f0;
+    border-radius: 10px;
+    background: #ffffff;
 }
 
-.avatar {
-    width: 64px;
-    height: 64px;
-    padding: 15px;
-    border-radius: 16px;
-    background: #eef0ff;
-    flex-shrink: 0
+.waitingCard .logo,
+.currentPatientCard .logo,
+.avgWaitingCard .logo {
+    flex-shrink: 0;
+    width: 58px;
+    height: 58px;
+    padding: 13px;
+    border-radius: 10px;
+    object-fit: contain;
 }
 
-.activePatientInfo {
+.waitingCard .logo {
+    background: #edf0ff;
+}
+
+.currentPatientCard .logo {
+    background: #e8f6ed;
+}
+
+.avgWaitingCard .logo {
+    background: #fff1e8;
+}
+
+.cardDetails {
+    min-width: 0;
+}
+
+.cardDetails h3 {
+    margin: 0;
+    color: #101735;
+    font-size: 25px;
+    line-height: 1.2;
+    font-weight: 750;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cardDetails p {
+    margin: 7px 0 0;
+    color: #677493;
+    font-size: 15px;
+    line-height: 1.3;
+    white-space: nowrap;
+}
+
+.currentPatientPanel {
+    min-height: 190px;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #e3e7f0;
+    border-radius: 17px;
+    box-shadow: 0 8px 24px rgba(44, 56, 95, 0.03);
+}
+
+.currentPatientPanel > h3 {
+    margin: 0 0 22px;
+    color: #101735;
+    font-size: 20px;
+    font-weight: 750;
+}
+
+.currentPatientPanel > div {
+    min-height: 90px;
+    display: grid;
+    grid-template-columns: 82px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 17px;
+}
+
+.currentPatientPanel > div > img {
+    width: 82px;
+    height: 82px;
+    padding: 16px;
+    border-radius: 50%;
+    object-fit: contain;
+    background: #edf1ff;
+}
+
+.activePatient {
+    min-width: 0;
+    color: #101735;
+    font-size: 20px;
+    font-weight: 750;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.currentPatientPanel button {
+    min-height: 56px;
+    padding: 0 22px;
+    border: 1px solid #ff9ca5;
+    border-radius: 9px;
+    background: #fffafb;
+    color: #ec2832;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.currentPatientPanel button:hover {
+    background: #fff2f3;
+}
+
+.currentPatientPanel button img {
+    width: 21px;
+    height: 21px;
+    object-fit: contain;
+}
+
+.queueSection {
+    width: 100%;
+    max-width: 1440px;
+    margin: 22px auto 0;
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(330px, 1fr);
+    gap: 20px;
+    align-items: start;
+}
+
+.queueCard {
+    min-height: 438px;
+    padding: 24px 22px 20px;
+    background: #ffffff;
+    border: 1px solid #e3e7f0;
+    border-radius: 17px;
+    box-shadow: 0 8px 24px rgba(44, 56, 95, 0.03);
+}
+
+.queueTitle {
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    position: relative;
+    padding-right: 120px;
+}
+
+.queueTitle::after {
+    content: "●  Live Updates";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #5f6d8d;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.queueTitle::first-letter {
+    color: #0d9a46;
+}
+
+.queueIcon {
+    width: 27px;
+    height: 27px;
+    object-fit: contain;
+}
+
+.queueTitleText {
+    color: #101735;
+    font-size: 20px;
+    font-weight: 750;
+}
+
+.queueList {
+    margin: 20px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.queueItem {
+    min-height: 53px;
+    display: grid;
+    grid-template-columns: 56px minmax(0, 1fr);
+    align-items: center;
+    border-top: 1px solid #e7ebf2;
+}
+
+.queueItem:first-child {
+    border-top: none;
+    background: #f5f7fb;
+}
+
+.tokenNo {
+    padding-left: 15px;
+    color: #172039;
+    font-size: 15px;
+    font-weight: 650;
+}
+
+.patientName {
+    min-width: 0;
+    padding-right: 14px;
+    color: #172039;
+    font-size: 15px;
+    font-weight: 550;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.queueItem:first-child .tokenNo,
+.queueItem:first-child .patientName {
+    font-weight: 700;
+}
+
+.emptyQueue {
+    min-height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #75819c;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.queueActions {
     display: flex;
     flex-direction: column;
-    gap: 5px
-}
-
-.activePatientLabel {
-    margin: 0;
-    color: #6366f1;
-    font-size: .8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: .06em
-}
-
-.activeToken {
-    font-size: 2.4rem;
-    line-height: 1;
-    font-weight: 750;
-    color: #6366f1;
-    letter-spacing: -.04em
-}
-
-.name {
-    font-size: 1.25rem;
-    font-weight: 650;
-    color: #0f172a
-}
-
-.emptyPatient {
-    margin: 0;
-    color: #64748b;
-    font-size: .95rem
+    gap: 22px;
 }
 
 .nextPatientCard {
-    display: flex;
-    align-items: stretch
+    width: 100%;
 }
 
 .nextBtn {
     width: 100%;
-    min-height: 190px;
-    padding: 28px;
-    border: 0;
-    border-radius: 16px;
-    background: #6366f1;
-    color: #fff;
-    cursor: pointer;
+    min-height: 226px;
+    padding: 28px 20px;
+    border: none;
+    border-radius: 17px;
+    background: linear-gradient(135deg, #5d5cf3 0%, #5659e9 100%);
+    color: #ffffff;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    text-align: left;
-    transition: transform .2s ease, box-shadow .2s ease, background .2s ease
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 13px 28px rgba(82, 86, 233, 0.18);
+    transition: all 0.22s ease;
 }
 
 .nextBtn:hover:not(:disabled) {
-    background: #5558e8;
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(99, 102, 241, .2)
+    box-shadow: 0 17px 32px rgba(82, 86, 233, 0.23);
 }
 
 .nextBtn:active:not(:disabled) {
-    transform: translateY(0)
+    transform: translateY(0);
 }
 
 .nextBtn:disabled {
-    background: #c7c9f7;
-    cursor: not-allowed
-}
-
-.nextBtnContent {
-    display: flex;
-    flex-direction: column;
-    gap: 7px
-}
-
-.nextBtnContent::before {
-    content: "QUEUE ACTION";
-    font-size: .72rem;
-    font-weight: 700;
-    letter-spacing: .08em;
-    opacity: .75
-}
-
-.nextBtnContent::after {
-    content: "Call the next patient";
-    font-size: 1.25rem;
-    font-weight: 700
+    cursor: not-allowed;
+    opacity: 0.55;
+    box-shadow: none;
 }
 
 .nextBtnArrow {
-    align-self: flex-end;
-    width: 42px;
-    height: 42px;
+    width: 76px;
+    height: 76px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, .15);
+    background: rgba(255, 255, 255, 0.18);
     display: flex;
     align-items: center;
-    justify-content: center
+    justify-content: center;
+}
+
+.nextBtnArrow::before {
+    content: "";
+    margin-left: 5px;
+    border-left: 15px solid #ffffff;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
 }
 
 .nextBtnArrow img {
-    width: 19px;
-    height: 19px;
-    filter: brightness(0) invert(1)
+    display: none;
 }
 
-.queueCard {
-    border: 1px solid #e5e7eb;
-    border-radius: 16px;
-    background: #fff;
-    overflow: hidden
+.nextBtnContent {
+    font-size: 27px;
+    line-height: 1.15;
+    font-weight: 750;
 }
 
-.queueTitle {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 20px 22px;
-    border-bottom: 1px solid #e5e7eb
+.nextBtnContent::after {
+    content: "Move to the next patient in queue";
+    display: block;
+    margin-top: 10px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 15px;
+    line-height: 1.4;
+    font-weight: 500;
 }
 
-.queueIcon {
-    width: 20px;
-    height: 20px
+.infoCard {
+    min-height: 186px;
+    padding: 27px 23px;
+    display: grid;
+    grid-template-columns: 28px minmax(0, 1fr);
+    gap: 12px;
+    border: 1px solid #d8e4ff;
+    border-radius: 15px;
+    background: #f8faff;
 }
 
-.queueTitleText {
-    font-size: .95rem;
-    font-weight: 700;
-    color: #0f172a
+.infoCard > img {
+    width: 24px;
+    height: 24px;
+    margin-top: 2px;
+    object-fit: contain;
 }
 
-.queueList {
+.infoCard p {
     margin: 0;
-    padding: 0;
-    list-style: none
+    color: #465476;
+    font-size: 15px;
+    line-height: 1.65;
+    font-weight: 500;
 }
 
-.queueItem {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    padding: 16px 22px;
-    border-bottom: 1px solid #f1f5f9;
-    transition: background .15s ease
-}
-
-.queueItem:last-child {
-    border-bottom: 0
-}
-
-.queueItem:hover {
-    background: #f8fafc
-}
-
-.tokenNo {
-    width: 38px;
-    height: 38px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    background: #eef0ff;
-    color: #6366f1;
-    font-size: .9rem;
-    font-weight: 700;
-    flex-shrink: 0
-}
-
-.patientName {
-    font-size: .95rem;
+.infoCard p::first-line {
     font-weight: 600;
-    color: #334155
 }
 
-.emptyQueue {
-    min-height: 150px;
-    padding: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #64748b;
-    font-size: .9rem;
-    text-align: center
-}
-
-.errorMessage {
-    padding: 12px 16px;
-    border: 1px solid #fecaca;
-    border-radius: 10px;
-    background: #fef2f2;
-    color: #dc2626;
-    font-size: .85rem
-}
-
-@media(max-width:800px) {
+@media (max-width: 1180px) {
     .doctorDashboard {
-        width: calc(100% - 24px);
-        margin: 20px auto;
-        padding: 20px;
-        border-radius: 16px;
-        gap: 20px
+        padding: 20px 20px 32px;
     }
 
-    .dashboardHeader {
-        padding-bottom: 20px
+    .sessionOverview {
+        grid-template-columns: 1fr;
+        gap: 24px;
     }
 
-    .dashboardTitle {
-        font-size: 1.35rem
+    .sessionDetails,
+    .clinicTimings,
+    .sessionControl {
+        padding: 0;
+        border: none;
+    }
+
+    .clinicTimings {
+        padding-top: 20px;
+        border-top: 1px solid #e1e5ed;
+    }
+
+    .sessionControl {
+        padding-top: 20px;
+        border-top: 1px solid #e1e5ed;
+    }
+
+    .sessionControl button {
+        max-width: 420px;
     }
 
     .dashboardMain {
-        grid-template-columns: 1fr
+        grid-template-columns: 1fr;
     }
 
-    .currentPatientCard,
+    .queueSection {
+        grid-template-columns: 1fr;
+    }
+
+    .queueActions {
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+    }
+
     .nextBtn {
-        min-height: 160px
-    }
-
-    .currentPatientCard {
-        padding: 22px
-    }
-
-    .nextBtn {
-        padding: 22px
+        min-height: 205px;
     }
 }
 
-@media(max-width:480px) {
+@media (max-width: 820px) {
     .doctorDashboard {
-        width: calc(100% - 16px);
-        padding: 16px
+        padding: 16px 14px 28px;
     }
 
     .dashboardHeader {
-        align-items: flex-start
+        min-height: 44px;
     }
 
-    .dashboardTitle {
-        font-size: 1.2rem
+    .onOff {
+        width: 48px;
+        height: 48px;
     }
 
-    .dashboardHeader p {
-        font-size: .8rem
+    .onOff .logo {
+        width: 25px;
+        height: 25px;
     }
 
-    .currentPatientCard {
-        gap: 16px;
-        padding: 18px
+    .sessionOverview {
+        margin-top: 18px;
+        padding: 22px;
+        border-radius: 14px;
     }
 
-    .avatar {
-        width: 52px;
-        height: 52px;
-        padding: 12px;
-        border-radius: 13px
+    .sessionDetails h3 {
+        font-size: 23px;
     }
 
-    .activeToken {
-        font-size: 1.8rem
+    .clinicTimings h3 {
+        font-size: 22px;
     }
 
-    .name {
-        font-size: 1.1rem
+    .liveQueue {
+        grid-template-columns: 1fr;
+        padding-top: 54px;
     }
 
-    .queueItem {
-        padding: 14px 16px
+    .waitingCard,
+    .currentPatientCard,
+    .avgWaitingCard {
+        min-height: 88px;
+    }
+
+    .currentPatientPanel > div {
+        grid-template-columns: 70px minmax(0, 1fr);
+    }
+
+    .currentPatientPanel > div > img {
+        width: 70px;
+        height: 70px;
+        padding: 13px;
+    }
+
+    .currentPatientPanel button {
+        grid-column: 1 / -1;
+        width: 100%;
+    }
+
+    .queueActions {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 560px) {
+    .doctorDashboard {
+        padding: 12px 10px 24px;
+    }
+
+    .sessionOverview {
+        padding: 18px;
+    }
+
+    .sessionDetails > p,
+    .clinicTimings > p:first-child,
+    .sessionControl > p:first-child {
+        font-size: 15px;
+    }
+
+    .sessionDetails h3 {
+        font-size: 21px;
+    }
+
+    .clinicTimings > div {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .clinicTimings h3 {
+        font-size: 20px;
+        white-space: normal;
+    }
+
+    .clinicTimings > div button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .liveQueue {
+        padding: 52px 14px 14px;
+    }
+
+    .liveQueue::before,
+    .currentPatientPanel > h3 {
+        font-size: 18px;
+    }
+
+    .cardDetails h3 {
+        font-size: 21px;
+    }
+
+    .cardDetails p {
+        font-size: 14px;
+    }
+
+    .currentPatientPanel {
+        padding: 18px;
+    }
+
+    .queueCard {
+        padding: 19px 14px;
     }
 
     .queueTitle {
-        padding: 17px 16px
+        padding-right: 0;
+    }
+
+    .queueTitle::after {
+        position: static;
+        margin-left: auto;
+        transform: none;
+        font-size: 12px;
+    }
+
+    .queueTitleText {
+        font-size: 18px;
+    }
+
+    .queueItem {
+        grid-template-columns: 44px minmax(0, 1fr);
+        min-height: 50px;
+    }
+
+    .tokenNo {
+        padding-left: 8px;
     }
 
     .nextBtn {
-        min-height: 145px
+        min-height: 205px;
+        border-radius: 14px;
+    }
+
+    .nextBtnArrow {
+        width: 66px;
+        height: 66px;
+    }
+
+    .nextBtnContent {
+        font-size: 23px;
+    }
+
+    .infoCard {
+        padding: 22px 18px;
     }
 }
