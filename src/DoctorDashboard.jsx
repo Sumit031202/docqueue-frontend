@@ -15,15 +15,16 @@ import play from "./assets/play.svg"
 
 function DoctorDashboard(){
     const {doctorId}=useParams()
-    const baseURL="https://api.docqueue.online"
+    const baseURL="http://localhost:8080"
     const [activePatient,setActivePatient]=useState({"fullName":"Nobody"})
     const [errorMessage,setErrorMessage]=useState("")
-    const [waitingQueue,setWaitingQueue]=useState([]) // empty queue
+    const [waitingQueue,setWaitingQueue]=useState([])
+    const [doctor,setDoctor]=useState({});
 
 
     // live queue
     useEffect(()=>{
-        const eventSource=new EventSource(`${baseURL}/api/patients/stream?doctorId=${doctorId}`);
+        const eventSource=new EventSource(`${baseURL}/api/public/stream/${doctorId}`);
         eventSource.addEventListener("Queue-Update",e=>{
             const queue=JSON.parse(e.data);
             console.log(queue);
@@ -40,20 +41,18 @@ function DoctorDashboard(){
                 setActivePatient({"fullName":"Nobody"});
             }
         })
+        getDoctorInfo()
         return () => {
             eventSource.close();
         };
-    },[])
+    },[doctorId])
 
     // const handleNameChange=(e)=>{
     //     setPatientName(e.target.value);
     // }
 
     const callNextPatient=async()=>{
-        
         try{
-            // console.log(`${baseURL}/api/doctors/${doctorId}/next`);
-            // console.log(localStorage.getItem("token"));
             const response=await fetch(`${baseURL}/api/doctors/${doctorId}/next`,{
             method:"POST",
             headers:{
@@ -71,6 +70,102 @@ function DoctorDashboard(){
             console.log(e);
         }
     }
+    const endSession=async()=>{
+        try{
+            const response=await fetch(`${baseURL}/api/doctors/${doctorId}/end`,{
+                method:"PATCH",
+                headers:{
+                    "Authorization":`Bearer ${localStorage.getItem("token")}`
+                }
+            })
+            if(!response.ok){
+                let errorMessage=await response.text();
+                setErrorMessage(errorMessage);
+            }else{
+                setErrorMessage("");
+            }
+        }catch(e){
+            setErrorMessage("Network Error: could not reach backend");
+            console.log(e);
+        }
+    }
+    const toggleStatus=async()=>{
+        try{
+            const response=await fetch(`${baseURL}/api/doctors/${doctorId}/toggle`,{
+                method:"PATCH",
+                headers:{
+                    "Authorization":`Bearer ${localStorage.getItem("token")}`
+                }
+            })
+            if(!response.ok){
+                let errorMessage=await response.text();
+                setErrorMessage(errorMessage);
+            }else{
+                setErrorMessage("");
+            }
+        }catch(e){
+            setErrorMessage("Network Error: could not reach backend");
+            console.log(e);
+        }
+    }
+    const updateSession=async()=>{
+        try{
+            const response=await fetch(`${baseURL}/api/doctors/${doctorId}/session`,{
+                method:"PUT",
+                headers:{
+                    "Authorization":`Bearer ${localStorage.getItem("token")}`
+                }
+            })
+            if(!response.ok){
+                let errorMessage=await response.text();
+                setErrorMessage(errorMessage);
+            }else{
+                setErrorMessage("");
+            }
+        }catch(e){
+            setErrorMessage("Network Error: could not reach backend");
+            console.log(e);
+        }
+    }
+    const handleNoShow=async()=>{
+        try{
+            const response=await fetch(`${baseURL}/api/doctors/${doctorId}/missed`,{
+            method:"POST",
+            headers:{
+                "Authorization":`Bearer ${localStorage.getItem("token")}`
+            }
+            })
+            if(!response.ok){
+                let errorMessage=await response.text();
+                setErrorMessage(errorMessage);
+            }else{
+                setErrorMessage("");
+            }
+        }catch(e){
+            setErrorMessage("Network Error: could not reach backend");
+            console.log(e);
+        }
+    }
+
+    const getDoctorInfo=async()=>{
+        try{
+            const response=await fetch(`${baseURL}/api/public/${doctorId}`,{
+            method:"GET"
+            })
+            if(!response.ok){
+                let errorMessage=await response.text();
+                setErrorMessage(errorMessage);
+                return;
+            }
+            const data=await response.json();
+            setDoctor(data);
+            console.log(data);
+            setErrorMessage("");
+        }catch(e){
+            setErrorMessage("Network Error: could not reach backend");
+            console.log(e);
+        }
+    }
     return(
         <div className={styles.doctorDashboard}>
             <div className={styles.dashboardHeader}>
@@ -78,7 +173,7 @@ function DoctorDashboard(){
                     <Logo/>
                 </div>
                 <div className={styles.headerStatus}>
-                    <button className={styles.onOff}>
+                    <button className={styles.onOff} onClick={endSession}>
                         <img className={styles.logo} src={shutdown} alt="on/off" />
                     </button>
                 </div>
@@ -96,13 +191,13 @@ function DoctorDashboard(){
                     </p>
                     <div>
                         <h3>10:00 AM - 01:00 PM</h3>
-                        <button><img src={edit} alt="edit" />Update</button>
+                        <button onClick={updateSession}><img src={edit} alt="edit" />Update</button>
                     </div>
                     <p>You can update the timings anytime. The session will follow the latest timings.</p>
                 </div>
                 <div className={styles.sessionControl}>
                     <p>Session Control</p>
-                    <button><img src={pause} alt="play/pause"/>Pause Session</button>
+                    <button onClick={toggleStatus}><img src={pause} alt="play/pause"/>Pause Session</button>
                     <p>Take a break. You can resume anytime.</p>
                 </div>
             </div>
@@ -111,21 +206,21 @@ function DoctorDashboard(){
                     <div className={styles.waitingCard}>
                         <img className={styles.logo} src={queue} alt="" />
                         <div className={styles.cardDetails}>
-                            <h3>6</h3>
+                            <h3>{waitingQueue.length}</h3>
                             <p>Patients Waiting</p>
                         </div>
                     </div>
                     <div className={styles.currentPatientCard}>
                         <img className={styles.logo} src={avatar} alt="user" />
                         <div className={styles.cardDetails}>
-                            <h3>Om Burnwal</h3>
+                            <h3>{activePatient.fullName}</h3>
                             <p>Currently Serving</p>
                         </div>
                     </div>
                     <div className={styles.avgWaitingCard}>
                         <img className={styles.logo} src={clock} alt="waiting" />
                         <div className={styles.cardDetails}>
-                            <h3>~12</h3>
+                            <h3>{doctor.consultationTime==null?"--":`~${Math.floor(doctor.consultationTime)} m`}</h3>
                             <p>Average Waiting Time</p>
                         </div>
                     </div>
@@ -134,8 +229,8 @@ function DoctorDashboard(){
                     <h3>Current Patient</h3>
                     <div>
                         <img src={avatar} alt="user" />
-                        <div className={styles.activePatient}>Om Burnwal</div>
-                        <button><img src={cancel} alt="cancel" />Mark as No Show</button>
+                        <div className={styles.activePatient}>{activePatient.fullName}</div>
+                        <button onClick={handleNoShow}><img src={cancel} alt="cancel" />Mark as No Show</button>
                     </div>
                 </div>
             </div>
