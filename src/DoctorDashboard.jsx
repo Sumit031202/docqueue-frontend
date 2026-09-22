@@ -70,6 +70,20 @@ function DoctorDashboard(){
             console.log(e);
         }
     }
+    const startSession=async()=>{
+        try{
+            const response=await fetch(`${baseURL}/api/public/${doctorId}/session`)
+            if(!response.ok){
+                let errorMessage=await response.text();
+                setErrorMessage(errorMessage);
+            }else{
+                setErrorMessage("");
+            }
+        }catch(e){
+            setErrorMessage("Network Error: could not reach backend");
+            console.log(e);
+        }
+    }
     const endSession=async()=>{
         try{
             const response=await fetch(`${baseURL}/api/doctors/${doctorId}/end`,{
@@ -173,7 +187,7 @@ function DoctorDashboard(){
                     <Logo/>
                 </div>
                 <div className={styles.headerStatus}>
-                    <button className={styles.onOff} onClick={endSession}>
+                    <button className={styles.onOff} onClick={startSession}>
                         <img className={styles.logo} src={shutdown} alt="on/off" />
                     </button>
                 </div>
