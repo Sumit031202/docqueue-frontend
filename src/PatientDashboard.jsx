@@ -13,7 +13,7 @@ import Logo from "./components/Logo.jsx"
 
 function PatientDashboard() {
     const {doctorId}=useParams();
-    const baseURL="http://localhost:8080"
+    const baseURL="https://api.docqueue.online"
     const [liveCount, setLiveCount] = useState(0);
     const [waitingQueue, setWaitingQueue] = useState([]);
     const [activePatient, setActivepatient] = useState({ "fullName": "Nobody" });

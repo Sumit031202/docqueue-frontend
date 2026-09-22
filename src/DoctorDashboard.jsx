@@ -15,7 +15,7 @@ import play from "./assets/play.svg"
 
 function DoctorDashboard(){
     const {doctorId}=useParams()
-    const baseURL="http://localhost:8080"
+    const baseURL="https://api.docqueue.online"
     const [activePatient,setActivePatient]=useState({"fullName":"Nobody"})
     const [errorMessage,setErrorMessage]=useState("")
     const [waitingQueue,setWaitingQueue]=useState([])

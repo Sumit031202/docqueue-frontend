@@ -13,7 +13,7 @@ function FindClinics() {
 
   const getDoctors = async () => {
     try{
-      let response = await fetch(`${baseURL}/api/doctors`);
+      let response = await fetch(`${baseURL}/api/public/doctors`);
       if (!response.ok) {
         const data = await response.text();
         setErrorMessage(data);

@@ -7,7 +7,7 @@ import grow from "../assets/grow.svg"
 import { useState } from "react"
 
 function Register({onLoginClick}){
-    const baseUrl="http://localhost:8080"
+    const baseUrl="https://api.docqueue.online"
     const [fullName,setFullName]=useState("");
     const [specialization,setSpecialization]=useState("");
     const [email,setEmail]=useState("");
