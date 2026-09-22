@@ -7,6 +7,7 @@ import grow from "../assets/grow.svg"
 import { useState } from "react"
 
 function Register({onLoginClick}){
+    const baseUrl="http://localhost:8080"
     const [fullName,setFullName]=useState("");
     const [specialization,setSpecialization]=useState("");
     const [email,setEmail]=useState("");
@@ -67,7 +68,7 @@ function Register({onLoginClick}){
         //     email: email,
         //     password: password
         // });
-        const response=await fetch("https://api.docqueue.online/api/auth/register",{
+        const response=await fetch(`${baseUrl}/api/auth/register`,{
             method:"POST",
 
             headers:{
