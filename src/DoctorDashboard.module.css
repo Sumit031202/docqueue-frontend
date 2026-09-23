@@ -1,15 +1,17 @@
 .doctorDashboard {
     min-height: 100vh;
     width: 100%;
-    padding: 24px 32px 40px;
+    padding: 20px 70px 20px;
     background: #f8f9fc;
     color: #111936;
     font-family: "Inter", "Segoe UI", sans-serif;
     box-sizing: border-box;
+    /* zoom:0.9; */
 }
 
 .doctorDashboard * {
     box-sizing: border-box;
+    /* outline: 2px solid red; */
 }
 
 .dashboardHeader {
@@ -44,6 +46,7 @@
 
 .onOff:hover {
     border-color: #c7ccdf;
+    background: #fff2f3;
     box-shadow: 0 8px 20px rgba(53, 63, 104, 0.08);
     transform: translateY(-1px);
 }
@@ -79,14 +82,38 @@
     transform: translateY(0);
 }
 
+.sessionMessage {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0px 20px 0px ;
+    padding: 17px 22px;
+    border: 1px solid #f5c45e;
+    border-radius: 14px;
+    background: #fff8e8;
+    color: #b45309;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.sessionMessage ~ .sessionOverview,
+.sessionMessage ~ .dashboardMain,
+.sessionMessage ~ .queueSection {
+    filter: blur(4px);
+    opacity: 0.55;
+    pointer-events: none;
+    user-select: none;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
 .sessionOverview {
     width: 100%;
     max-width: 1440px;
-    margin: 24px auto 0;
+    margin: 10px auto 0;
     min-height: 186px;
     padding: 30px;
     display: grid;
-    grid-template-columns: 0.95fr 1.4fr 0.8fr;
+    grid-template-columns: 0.95fr 0.5fr;
     background: #ffffff;
     border: 1px solid #e3e7f0;
     border-radius: 17px;
@@ -137,80 +164,6 @@
     background: #079b45;
 }
 
-.clinicTimings {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 38px;
-    border-left: 1px solid #dfe4ee;
-    border-right: 1px solid #dfe4ee;
-}
-
-.clinicTimings > p:first-child {
-    margin: 0 0 7px;
-    display: flex;
-    align-items: center;
-    gap: 13px;
-    color: #657193;
-    font-size: 17px;
-    font-weight: 600;
-}
-
-.clinicTimings > p:first-child img {
-    width: 27px;
-    height: 27px;
-    object-fit: contain;
-}
-
-.clinicTimings > div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.clinicTimings h3 {
-    margin: 0;
-    color: #101735;
-    font-size: 27px;
-    font-weight: 750;
-    white-space: nowrap;
-}
-
-.clinicTimings > div button {
-    flex-shrink: 0;
-    min-height: 44px;
-    padding: 0 17px;
-    border: none;
-    border-radius: 10px;
-    background: #eef0ff;
-    color: #514ff3;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 15px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.clinicTimings > div button:hover {
-    background: #e4e6ff;
-}
-
-.clinicTimings > div button img {
-    width: 17px;
-    height: 17px;
-    object-fit: contain;
-}
-
-.clinicTimings > p:last-child {
-    margin: 14px 0 0;
-    color: #71809d;
-    font-size: 14px;
-    line-height: 1.5;
-}
-
 .sessionControl {
     display: flex;
     flex-direction: column;
@@ -230,8 +183,8 @@
     min-height: 56px;
     border: 1px solid #cdebd9;
     border-radius: 10px;
-    background: #ebf8f0;
-    color: #087d38;
+    background: #ffffff;
+    color: #e42727;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -243,7 +196,8 @@
 }
 
 .sessionControl button:hover {
-    background: #e1f5e8;
+    background: #fff2f3;
+
 }
 
 .sessionControl button img {
@@ -262,9 +216,9 @@
 .dashboardMain {
     width: 100%;
     max-width: 1440px;
-    margin: 22px auto 0;
+    margin: 15px auto 0;
     display: grid;
-    grid-template-columns: minmax(0, 1.55fr) minmax(360px, 1fr);
+    grid-template-columns: minmax(0, 1.55fr) minmax(360px, 1.5fr) minmax(150px,0.5fr);
     gap: 14px;
 }
 
@@ -273,7 +227,7 @@
     min-height: 190px;
     padding: 54px 20px 20px;
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
     background: #ffffff;
     border: 1px solid #e3e7f0;
@@ -425,7 +379,7 @@
 .queueSection {
     width: 100%;
     max-width: 1440px;
-    margin: 22px auto 0;
+    margin: 15px auto 0;
     display: grid;
     grid-template-columns: minmax(0, 2fr) minmax(330px, 1fr);
     gap: 20px;
@@ -542,7 +496,7 @@
 
 .nextBtn {
     width: 100%;
-    min-height: 226px;
+    min-height: 190px;
     padding: 28px 20px;
     border: none;
     border-radius: 17px;
