@@ -110,7 +110,7 @@
 
 .inputGroup input {
     flex: 1;
-    height: 58px;
+    min-height: 58px;
     border: 1px solid #d7e2ed;
     border-radius: 12px;
     padding: 0 18px;
@@ -320,87 +320,223 @@
     color: #7c8da0;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
     .patientDashboardContainer {
-        padding: 0 22px 40px;
+        padding:0px 20px;
     }
 
     .dashboardHeader {
-        margin: 0 -22px 25px;
-        padding: 0 22px;
+        padding-bottom: 20px;
     }
 
-    .dashboardGrid {
-        grid-template-columns: 1fr;
+    .registrationMessage {
+        padding: 14px 16px;
+        font-size: 14px;
+        line-height: 1.5;
+        border-radius: 12px;
     }
 
-    .inputGroup {
-        flex-direction: column;
+    .formCard {
+        padding: 22px;
+        border-radius: 18px;
     }
 
-    .joinBtn {
-        width: 100%;
-    }
-}
-
-@media (max-width: 600px) {
-    .patientDashboardContainer {
-        padding: 0 14px 30px;
-    }
-
-    .dashboardHeader {
-        height: 75px;
-        margin: 0 -14px 20px;
-        padding: 0 16px;
-    }
-
-    .headerTitleGroup {
-        gap: 14px;
-    }
-
-    .headerTitleGroup h2 {
-        font-size: 19px;
-        padding-left: 14px;
-    }
-
-    .formCard,
-    .currentPatientCard,
-    .waitingCountCard,
-    .queueCard {
-        padding: 18px;
+    .formHeader {
+        gap: 12px;
+        margin-bottom: 20px;
     }
 
     .formHeader h3 {
         font-size: 20px;
     }
 
-    .cardBodyRow {
-        gap: 15px;
+    .inputGroup {
+        flex-direction: column;
+        gap: 12px;
     }
 
-    .avatar {
-        width: 60px;
-        height: 60px;
-        padding: 15px;
+    .inputGroup input {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .joinBtn {
+        width: 100%;
+        min-height: 48px;
+        justify-content: center;
+    }
+
+    .dashboardGrid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .currentPatientCard,
+    .waitingCountCard {
+        padding: 22px;
+    }
+
+    .cardBodyRow {
+        align-items: center;
+    }
+
+    .cardAccentHeader {
+        font-size: 14px;
     }
 
     .activeName {
         font-size: 21px;
+        line-height: 1.35;
+    }
+
+    .waitingCount {
+        font-size: 32px;
+    }
+
+    .waitingLabel {
+        font-size: 14px;
+    }
+
+    .queueCard {
+        padding: 20px;
+        border-radius: 18px;
+    }
+
+    .queueTitle {
+        gap: 10px;
+        margin-bottom: 18px;
+    }
+
+    .title {
+        font-size: 19px;
+    }
+
+    .queueCard li {
+        padding: 12px 0;
+        gap: 12px;
+    }
+
+    .tokenNo {
+        width: 34px;
+        height: 34px;
+        flex: 0 0 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .patientName {
+        font-size: 15px;
+        min-width: 0;
+    }
+
+    .queueCard h4 {
+        font-size: 16px;
+        line-height: 1.5;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .patientDashboardContainer {
+        padding:0px 15px;
+    }
+
+    .dashboardHeader {
+        padding-bottom: 16px;
+    }
+
+    .registrationMessage {
+        padding: 13px 14px;
+        font-size: 13px;
+    }
+
+    .formCard {
+        padding: 18px;
+        border-radius: 16px;
+    }
+
+    .formHeader {
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 16px;
+    }
+
+    .formHeader h3 {
+        font-size: 18px;
+    }
+
+    .formHeader .icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .inputGroup input {
+        height: 46px;
+        padding: 0 13px;
+        font-size: 14px;
+    }
+
+    .joinBtn {
+        min-height: 46px;
+        font-size: 14px;
+        padding: 12px 16px;
+    }
+
+    .currentPatientCard,
+    .waitingCountCard {
+        padding: 18px;
+        border-radius: 16px;
+    }
+
+    .cardBodyRow {
+        gap: 12px;
+    }
+
+    .cardAccentHeader {
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    .activeName {
+        font-size: 18px;
     }
 
     .waitingCount {
         font-size: 30px;
     }
 
+    .waitingLabel {
+        font-size: 13px;
+    }
+
+    .queueCard {
+        padding: 16px;
+        border-radius: 16px;
+    }
+
+    .queueTitle {
+        margin-bottom: 14px;
+    }
+
     .title {
-        font-size: 18px;
+        font-size: 17px;
     }
 
     .queueCard li {
-        min-height: 60px;
+        padding: 11px 0;
+        gap: 10px;
+    }
+
+    .tokenNo {
+        width: 30px;
+        height: 30px;
+        flex-basis: 30px;
+        font-size: 13px;
     }
 
     .patientName {
-        font-size: 16px;
+        font-size: 14px;
     }
 }

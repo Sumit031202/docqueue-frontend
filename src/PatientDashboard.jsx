@@ -42,15 +42,7 @@ function PatientDashboard() {
         }
     }
 
-    const handleSession=async()=> {
-        if (!doctor?.startTime) {
-            console.log("Doctor start time is not available yet");
-            return;
-        }
-        const now=new Date();
-        const [hours,minutes,seconds]=doctor.startTime.split(':').map(Number);
-        const startTime=new Date();
-        startTime.setHours(hours,minutes,seconds,0);
+    const checkSession=async()=> {
         try{
             const response=await fetch(`${baseURL}/api/public/${doctorId}/check`);
             if(!response.ok){
@@ -59,23 +51,11 @@ function PatientDashboard() {
             }
             const data=await response.json();
             console.log(data);
-            if(now<startTime){
-                if(data===true){
-                    setRegistrationMessage("");
-                    console.log("Registrations are open");
-                }else{
-                    setRegistrationMessage(`Registrations are not open yet, will open after ${startTime}`);
-                    console.log("Registrations are not open yet");
-                }
-            }else if(now<endTime){
-                setRegistrationMessage("")
-                if(data===false){
-                    console.log("session is being created...");
-                    await fetch(`${baseURL}/api/public/${doctorId}/session`);
-                }
-                // patient can join
-                console.log("you can register now")
+            if(data===true){
+                setRegistrationMessage("");
+                return;
             }
+            setRegistrationMessage("Registrations are not open yet!");
         }catch(error){
             setErrorMessage(error);
             console.log(error);
@@ -110,7 +90,7 @@ function PatientDashboard() {
 
     useEffect(() => {
         if (doctor.startTime) {
-            handleSession();
+            checkSession();
         }
     }, [doctor.startTime]);
 
@@ -140,8 +120,7 @@ function PatientDashboard() {
             )}
             <section className={styles.formCard}>
                 <div className={styles.formHeader}>
-                    <img className={styles.icon} src={join} alt="" />
-                    <h3>Join Queue</h3>
+                    <h3>Enter Patient Name</h3>
                 </div>
                 <div className={styles.inputGroup}>
                     <input
