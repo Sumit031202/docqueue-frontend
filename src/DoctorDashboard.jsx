@@ -46,6 +46,10 @@ function DoctorDashboard(){
                 setActivePatient({"fullName":"Nobody"});
             }
         })
+        eventSource.addEventListener("Average-Waiting-Time",(e)=>{
+            const time=JSON.parse(e.data);
+            setWaitingTime(time);
+        })
         getDoctorInfo()
         checkSession();
         return () => {
@@ -162,7 +166,6 @@ function DoctorDashboard(){
                 return;
             }
             const data=await response.json();
-            setWaitingTime(data.consultationTime);
             setDoctor(data);
             console.log(data);
             setErrorMessage("");
@@ -257,8 +260,8 @@ function DoctorDashboard(){
                     <div className={styles.infoCard}>
                         <img src={info} alt="information" />
                         <p>
-                            Use Mark as No Show if the current patient is not present.<br/>
-                            Use End Session only when the clinic is finished for the day.
+                            Use <b>Mark as No Show</b> if the current patient is not present.<br/>
+                            Use <b>End Session</b> only when the clinic is finished for the day.
                         </p>
                     </div>
                 </div>
