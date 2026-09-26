@@ -25,10 +25,14 @@ function DoctorDashboard(){
         year: "numeric"
     });
     const [waitingTime,setWaitingTime]=useState();
+    const [isSessionActive,setIsSessionActive]=useState(false);
 
 
     // live queue
     useEffect(()=>{
+        if(!isSessionActive){
+            return;
+        }
         const eventSource=new EventSource(`${baseURL}/api/public/stream/${doctorId}`);
         eventSource.addEventListener("Queue-Update",e=>{
             const queue=JSON.parse(e.data);
@@ -50,12 +54,10 @@ function DoctorDashboard(){
             const time=JSON.parse(e.data);
             setWaitingTime(time);
         })
-        getDoctorInfo()
-        checkSession();
         return () => {
             eventSource.close();
         };
-    },[doctorId])
+    },[doctorId,isSessionActive])
 
     const callNextPatient=async()=>{
         try{
@@ -88,6 +90,7 @@ function DoctorDashboard(){
                 let errorMessage=await response.text();
                 setErrorMessage(errorMessage);
             }else{
+                setIsSessionActive(true);
                 setErrorMessage("");
                 setSessionMessage("");
             }
@@ -109,6 +112,9 @@ function DoctorDashboard(){
                 setErrorMessage(errorMessage);
             }else{
                 setErrorMessage("");
+                setIsSessionActive(false);
+                setWaitingQueue([]);
+                setActivePatient({"fullName":"Nobody"});
                 setSessionMessage("Session have not started yet, click on start session");
             }
         }catch(e){
@@ -126,9 +132,11 @@ function DoctorDashboard(){
             const data=await response.json();
             console.log(data);
             if(data===true){
+                setIsSessionActive(true);
                 setSessionMessage("");
                 return;
             }
+            setIsSessionActive(false);
             setSessionMessage("Session have not started yet, click on start session");
         }catch(error){
             setErrorMessage(error);
@@ -174,6 +182,10 @@ function DoctorDashboard(){
             console.log(e);
         }
     }
+    useEffect(()=>{
+        getDoctorInfo()
+        checkSession();
+    },[doctorId])
     return(
         <div className={styles.doctorDashboard}>
             <div className={styles.dashboardHeader}>
