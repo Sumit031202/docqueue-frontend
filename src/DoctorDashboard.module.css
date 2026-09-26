@@ -1,24 +1,22 @@
 .doctorDashboard {
     min-height: 100vh;
     width: 100%;
-    padding: 20px 70px 20px;
+    padding: 20px 70px;
     background: #f8f9fc;
     color: #111936;
     font-family: "Inter", "Segoe UI", sans-serif;
     box-sizing: border-box;
-    /* zoom:0.9; */
 }
 
 .doctorDashboard * {
     box-sizing: border-box;
-    /* outline: 2px solid red; */
 }
 
 .dashboardHeader {
     width: 100%;
     max-width: 1440px;
-    margin: 0 auto;
     min-height: 48px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -86,7 +84,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    margin: 20px 0px 20px 0px ;
+    margin: 20px 0;
     padding: 17px 22px;
     border: 1px solid #f5c45e;
     border-radius: 14px;
@@ -109,8 +107,8 @@
 .sessionOverview {
     width: 100%;
     max-width: 1440px;
-    margin: 10px auto 0;
     min-height: 186px;
+    margin: 10px auto 0;
     padding: 30px;
     display: grid;
     grid-template-columns: 0.95fr 0.5fr;
@@ -197,7 +195,6 @@
 
 .sessionControl button:hover {
     background: #fff2f3;
-
 }
 
 .sessionControl button img {
@@ -218,7 +215,10 @@
     max-width: 1440px;
     margin: 15px auto 0;
     display: grid;
-    grid-template-columns: minmax(0, 1.55fr) minmax(360px, 1.5fr) minmax(150px,0.5fr);
+    grid-template-columns:
+        minmax(0, 1.55fr)
+        minmax(360px, 1.5fr)
+        minmax(150px, 0.5fr);
     gap: 14px;
 }
 
@@ -246,7 +246,6 @@
 }
 
 .waitingCard,
-.currentPatientCard,
 .avgWaitingCard {
     min-width: 0;
     min-height: 102px;
@@ -260,7 +259,6 @@
 }
 
 .waitingCard .logo,
-.currentPatientCard .logo,
 .avgWaitingCard .logo {
     flex-shrink: 0;
     width: 58px;
@@ -272,10 +270,6 @@
 
 .waitingCard .logo {
     background: #edf0ff;
-}
-
-.currentPatientCard .logo {
-    background: #e8f6ed;
 }
 
 .avgWaitingCard .logo {
@@ -397,11 +391,11 @@
 
 .queueTitle {
     min-height: 32px;
+    padding-right: 120px;
     display: flex;
     align-items: center;
     gap: 13px;
     position: relative;
-    padding-right: 120px;
 }
 
 .queueTitle::after {
@@ -413,10 +407,6 @@
     color: #5f6d8d;
     font-size: 14px;
     font-weight: 600;
-}
-
-.queueTitle::first-letter {
-    color: #0d9a46;
 }
 
 .queueIcon {
@@ -503,10 +493,8 @@
     background: #6d6dfd;
     color: #ffffff;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 15px;
     text-align: center;
     cursor: pointer;
     box-shadow: 0 13px 28px rgba(82, 86, 233, 0.18);
@@ -532,15 +520,6 @@
     font-size: 27px;
     line-height: 1.15;
     font-weight: 750;
-}
-
-.nextBtnContent::after {
-    display: block;
-    margin-top: 10px;
-    color: rgba(254, 246, 246, 0.9);
-    font-size: 15px;
-    line-height: 1.4;
-    font-weight: 500;
 }
 
 .infoCard {
@@ -573,57 +552,57 @@
     font-weight: 600;
 }
 
+
+/* =========================================
+   Smaller Desktop
+========================================= */
+
 @media (max-width: 1460px) {
+
     .doctorDashboard {
-        padding: 24px 5%;
+        padding: 10px;
     }
 
-    .dashboardMain {
-        gap: 20px;
-    }
-
+    .dashboardMain,
     .sessionOverview,
     .queueSection {
-        gap: 20px;
+        gap: 10px;
     }
 
     .currentPatientPanel,
     .queueCard {
         min-width: 0;
     }
-
-    .patientName {
-        overflow-wrap: anywhere;
-    }
 }
 
 
 /* =========================================
-   Tablet Landscape
+   Tablet
 ========================================= */
 
-@media (max-width: 1200px) {
+@media (max-width: 1280px) {
+
     .doctorDashboard {
-        padding: 22px 4%;
+        padding: 14px 24px 20px;
     }
 
     .sessionOverview {
-        padding: 24px;
+        padding: 22px;
     }
 
     .dashboardMain {
         grid-template-columns: 1fr;
-        gap: 18px;
-    }
-
-    .liveQueue {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 16px;
+        gap: 14px;
     }
 
     .queueSection {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 14px;
+    }
+
+    .liveQueue {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
     }
 
     .currentPatientPanel,
@@ -631,10 +610,6 @@
     .queueActions,
     .infoCard {
         width: 100%;
-    }
-
-    .infoCard {
-        box-sizing: border-box;
     }
 }
 
@@ -644,21 +619,22 @@
 ========================================= */
 
 @media (max-width: 1024px) {
+
     .doctorDashboard {
-        padding: 20px 3%;
+        padding: 14px 20px 20px;
     }
 
     .dashboardHeader {
-        padding-bottom: 10px;
+        padding-bottom: 8px;
     }
 
     .sessionOverview {
-        padding: 22px;
-        gap: 20px;
+        padding: 20px;
+        gap: 16px;
     }
 
     .sessionDetails h3 {
-        font-size: 25px;
+        font-size: 23px;
     }
 
     .sessionControl button {
@@ -666,27 +642,25 @@
     }
 
     .liveQueue {
-        gap: 14px;
+        gap: 10px;
     }
 
     .waitingCard,
     .avgWaitingCard {
-        padding: 20px;
+        padding: 16px;
         min-width: 0;
     }
 
     .cardDetails h3 {
-        font-size: 25px;
-        overflow-wrap: anywhere;
+        font-size: 22px;
     }
 
     .currentPatientPanel {
-        padding: 22px;
+        padding: 18px;
     }
 
     .currentPatientPanel > div {
-        gap: 16px;
-        flex-wrap: wrap;
+        gap: 14px;
     }
 
     .activePatient {
@@ -699,407 +673,314 @@
     }
 
     .nextBtn {
-        min-height: 110px;
+        min-height: 80px;
     }
 
     .queueCard {
-        padding: 22px;
+        padding: 18px;
     }
 
     .queueItem {
-        gap: 14px;
+        gap: 12px;
     }
 }
 
 
 /* =========================================
-   Mobile Devices
+   Mobile
 ========================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 868px) {
+
     .doctorDashboard {
-        padding: 18px 20px 32px;
+        padding: 12px 16px 16px;
     }
 
     .dashboardHeader {
-        padding-bottom: 8px;
-    }
-
-    .headerStatus {
-        gap: 8px;
+        min-height: 44px;
+        padding-bottom: 7px;
     }
 
     .onOff {
-        width: 46px;
-        height: 46px;
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
     }
 
-    /* Session message */
+    .onOff .logo {
+        width: 23px;
+        height: 23px;
+    }
 
     .sessionMessage {
-        padding: 14px 16px;
-        font-size: 14px;
-        line-height: 1.5;
-        border-radius: 12px;
-    }
-
-    /* Session overview */
-
-    .sessionOverview {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 20px;
-        border-radius: 18px;
-    }
-
-    .sessionDetails {
-        padding-right: 0;
-        padding-bottom: 18px;
-        border-right: none;
-        border-bottom: 1px solid #e2e8f0;
-    }
-
-    .sessionDetails h3 {
-        font-size: 23px;
-    }
-
-    .sessionControl {
-        padding-left: 0;
-        align-items: stretch;
-    }
-
-    .sessionControl button {
-        width: 100%;
-        justify-content: center;
-    }
-
-    /* Live queue statistics */
-
-    .liveQueue {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
-        padding: 54px 16px 16px;
-    }
-
-    .waitingCard,
-    .avgWaitingCard {
-        padding: 18px;
-        gap: 12px;
-        border-radius: 16px;
-    }
-
-    .waitingCard .logo,
-    .avgWaitingCard .logo {
-        width: 38px;
-        height: 38px;
-    }
-
-    .cardDetails h3 {
-        font-size: 23px;
-    }
-
-    .cardDetails p {
+        margin: 6px 0 9px;
+        padding: 10px 13px;
+        border-radius: 11px;
         font-size: 13px;
         line-height: 1.4;
     }
 
-    /* Current patient */
+    .sessionOverview {
+        grid-template-columns: 1fr;
+        gap: 11px;
+        min-height: 0;
+        padding: 15px 17px;
+        border-radius: 15px;
+        margin: 0 auto 0;
+    }
+
+    .sessionDetails {
+        padding-right: 0;
+        padding-bottom: 11px;
+        border-right: none;
+        border-bottom: 1px solid #e2e8f0;
+    }
+
+    .sessionDetails > p {
+        margin-bottom: 4px;
+        font-size: 13px;
+    }
+
+    .sessionDetails h3 {
+        font-size: 21px;
+        line-height: 1.2;
+    }
+
+    .badge {
+        margin-top: 8px;
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    .badge::before {
+        width: 8px;
+        height: 8px;
+    }
+
+    .sessionControl {
+        padding-left: 0;
+    }
+
+    .sessionControl > p:first-child {
+        margin-bottom: 6px;
+        font-size: 13px;
+    }
+
+    .sessionControl button {
+        min-height: 42px;
+        padding: 0 12px;
+        border-radius: 8px;
+        font-size: 13px;
+    }
+
+    .sessionControl button img {
+        width: 17px;
+        height: 17px;
+    }
+
+    .sessionControl > p:last-child {
+        margin-top: 5px;
+        font-size: 11px;
+        line-height: 1.35;
+    }
+
+    .dashboardMain {
+        margin-top: 10px;
+        gap: 9px;
+    }
+
+    .liveQueue {
+        min-height: 0;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+        padding: 9px;
+        border-radius: 15px;
+    }
+
+    .liveQueue::before {
+        display: none;
+    }
+
+    .waitingCard,
+    .avgWaitingCard {
+        min-height: 70px;
+        padding: 10px;
+        gap: 9px;
+        border-radius: 11px;
+    }
+
+    .waitingCard .logo,
+    .avgWaitingCard .logo {
+        width: 35px;
+        height: 35px;
+        padding: 7px;
+        border-radius: 9px;
+    }
+
+    .cardDetails h3 {
+        font-size: 20px;
+        line-height: 1.15;
+    }
+
+    .cardDetails p {
+        margin-top: 3px;
+        font-size: 11px;
+        line-height: 1.3;
+        white-space: normal;
+    }
 
     .currentPatientPanel {
-        padding: 20px;
-        border-radius: 18px;
+        min-height: 0;
+        padding: 15px 17px;
+        border-radius: 15px;
+    }
+
+    .currentPatientPanel > h3 {
+        margin: 0 0 10px;
+        font-size: 18px;
     }
 
     .currentPatientPanel > div {
+        min-height: 0;
         display: grid;
-        grid-template-columns: auto minmax(0, 1fr);
+        grid-template-columns: 46px minmax(0, 1fr);
         align-items: center;
-        gap: 14px;
+        gap: 10px;
     }
 
     .currentPatientPanel > div > img {
-        width: 48px;
-        height: 48px;
-        padding: 10px;
+        width: 46px;
+        height: 46px;
+        padding: 9px;
     }
 
     .activePatient {
-        font-size: 19px;
+        font-size: 17px;
+        line-height: 1.2;
     }
 
     .currentPatientPanel button {
         grid-column: 1 / -1;
         width: 100%;
-        min-height: 46px;
-        margin: 4px 0 0;
+        min-height: 42px;
+        margin: 2px 0 0;
+        padding: 0 10px;
+        border-radius: 8px;
         justify-content: center;
+        font-size: 13px;
     }
 
-    /* Next patient button */
+    .currentPatientPanel button img {
+        width: 17px;
+        height: 17px;
+    }
 
     .nextPatientCard {
         width: 100%;
     }
 
     .nextBtn {
-        width: 100%;
-        min-height: 58px;
-        border-radius: 14px;
-        padding: 16px 20px;
+        min-height: 48px;
+        padding: 10px 16px;
+        border-radius: 11px;
     }
 
     .nextBtnContent {
-        font-size: 16px;
+        font-size: 15px;
+        line-height: 1.1;
     }
 
-    /* Queue */
-
     .queueSection {
-        gap: 16px;
+        margin-top: 9px;
+        grid-template-columns: 1fr;
+        gap: 9px;
     }
 
     .queueCard {
-        padding: 20px;
-        border-radius: 18px;
-        overflow-x: auto;
+        min-height: 0;
+        padding: 13px 14px;
+        border-radius: 15px;
+        overflow: hidden;
     }
 
     .queueTitle {
-        gap: 10px;
-        margin-bottom: 18px;
+        min-height: 28px;
+        padding-right: 75px;
+        margin-bottom: 5px;
+        gap: 8px;
     }
 
     .queueIcon {
-        width: 26px;
-        height: 26px;
+        width: 24px;
+        height: 24px;
     }
 
     .queueTitleText {
-        font-size: 19px;
+        font-size: 17px;
+        line-height: 1.2;
+    }
+
+    .queueTitle::after {
+        font-size: 12px;
     }
 
     .queueList {
         width: 100%;
+        margin-top: 5px;
     }
 
     .queueItem {
-        min-height: 53px;
-        padding: 12px 0;
-        gap: 12px;
+        min-height: 38px;
+        padding: 4px 0;
+        gap: 9px;
     }
 
     .tokenNo {
-        width: 34px;
-        height: 34px;
+        width: 29px;
+        height: 29px;
+        flex-basis: 29px;
         padding-left: 0;
         display: flex;
         align-items: center;
         justify-content: center;
+        border-radius: 50%;
+        background: #edf1ff;
+        font-size: 12px;
     }
 
     .patientName {
-        padding-right: 14px;
-        font-size: 15px;
+        min-width: 0;
+        padding-right: 8px;
+        font-size: 14px;
     }
 
-    /* Information card */
+    .emptyQueue {
+        min-height: 115px;
+        padding: 18px 15px;
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    .queueActions {
+        width: 100%;
+    }
 
     .infoCard {
-        padding: 18px;
-        gap: 12px;
-        border-radius: 16px;
-    }
-
-    .infoCard p {
-        font-size: 14px;
-        line-height: 1.6;
-    }
-}
-
-
-/* =========================================
-   Small Mobile Devices
-========================================= */
-
-@media (max-width: 480px) {
-    .doctorDashboard {
-        padding: 16px 14px 28px;
-    }
-
-    .dashboardHeader {
-        padding-bottom: 6px;
-    }
-
-    .onOff {
-        width: 42px;
-        height: 42px;
-    }
-
-    /* Session message */
-
-    .sessionMessage {
+        min-height: 0;
         padding: 12px 14px;
-        font-size: 13px;
+        grid-template-columns: 23px minmax(0, 1fr);
+        gap: 9px;
+        border-radius: 13px;
     }
 
-    /* Session overview */
-
-    .sessionOverview {
-        gap: 18px;
-        padding: 18px;
-        border-radius: 16px;
-    }
-
-    .sessionDetails {
-        padding-bottom: 16px;
-    }
-
-    .sessionDetails > p,
-    .sessionControl > p:first-child {
-        font-size: 13px;
-    }
-
-    .sessionDetails h3 {
-        font-size: 21px;
-        line-height: 1.35;
-    }
-
-    .badge {
-        padding: 8px 12px;
-        font-size: 12px;
-    }
-
-    .sessionControl button {
-        min-height: 44px;
-        font-size: 13px;
-    }
-
-    .sessionControl > p:last-child {
-        font-size: 12px;
-        line-height: 1.5;
-    }
-
-    /* Live queue statistics */
-
-    .liveQueue {
-        gap: 10px;
-        padding: 54px 12px 12px;
-    }
-
-    .liveQueue::before {
-        left: 16px;
-        font-size: 18px;
-    }
-
-    .waitingCard,
-    .avgWaitingCard {
-        padding: 14px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-        border-radius: 14px;
-    }
-
-    .waitingCard .logo,
-    .avgWaitingCard .logo {
-        width: 36px;
-        height: 36px;
-        padding: 9px;
-    }
-
-    .cardDetails h3 {
-        font-size: 22px;
-        line-height: 1.3;
-    }
-
-    .cardDetails p {
-        font-size: 12px;
-    }
-
-    /* Current patient */
-
-    .currentPatientPanel {
-        padding: 18px;
-        border-radius: 16px;
-    }
-
-    .currentPatientPanel > h3 {
-        margin-bottom: 18px;
-        font-size: 18px;
-    }
-
-    .currentPatientPanel > div {
-        gap: 12px;
-    }
-
-    .currentPatientPanel > div > img {
-        width: 44px;
-        height: 44px;
-        padding: 9px;
-    }
-
-    .activePatient {
-        font-size: 17px;
-    }
-
-    .currentPatientPanel button {
-        min-height: 44px;
-        padding: 11px 12px;
-        font-size: 13px;
-    }
-
-    /* Next patient button */
-
-    .nextBtn {
-        min-height: 52px;
-        padding: 14px 16px;
-    }
-
-    .nextBtnContent {
-        font-size: 14px;
-    }
-
-    /* Queue */
-
-    .queueCard {
-        padding: 16px;
-        border-radius: 16px;
-    }
-
-    .queueTitle {
-        margin-bottom: 14px;
-    }
-
-    .queueTitleText {
-        font-size: 17px;
-    }
-
-    .queueItem {
-        min-height: 48px;
-        padding: 11px 0;
-        gap: 10px;
-    }
-
-    .tokenNo {
-        width: 30px;
-        height: 30px;
-        flex-basis: 30px;
-        font-size: 13px;
-    }
-
-    .patientName {
-        font-size: 14px;
-    }
-
-    /* Information card */
-
-    .infoCard {
-        padding: 16px;
-        border-radius: 14px;
+    .infoCard > img {
+        width: 21px;
+        height: 21px;
+        margin-top: 1px;
     }
 
     .infoCard p {
         font-size: 12px;
-        line-height: 1.6;
+        line-height: 1.45;
     }
 }
