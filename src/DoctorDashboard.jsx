@@ -59,14 +59,34 @@ function DoctorDashboard({onLoginClick}){
         };
     },[doctorId,isSessionActive])
 
+    const authFetch=async(url,options={})=>{
+        const token=localStorage.getItem("token");
+        if(!token){
+            logout();
+            return null;
+        }
+        const response=await fetch(url,{
+            ...options,
+            headers:{
+                ...options.headers,
+                Authorization:`Bearer ${token}`
+            }
+        })
+        if(response.status===401){
+            logout();
+            return null;
+        }
+        return response;
+    }
+
     const callNextPatient=async()=>{
         try{
-            const response=await fetch(`${baseURL}/api/doctors/${doctorId}/next`,{
-            method:"POST",
-            headers:{
-                "Authorization":`Bearer ${localStorage.getItem("token")}`
-            }
+            const response=await authFetch(`${baseURL}/api/doctors/${doctorId}/next`,{
+            method:"POST"
             })
+            if(!response){
+                return;
+            }
             if(!response.ok){
                 let errorMessage=await response.text();
                 setErrorMessage(errorMessage);
@@ -80,12 +100,12 @@ function DoctorDashboard({onLoginClick}){
     }
     const startSession=async()=>{
         try{
-            const response=await fetch(`${baseURL}/api/doctors/${doctorId}/session`,{
-                method:"GET",
-                headers:{
-                    "Authorization":`Bearer ${localStorage.getItem("token")}`
-                }
+            const response=await authFetch(`${baseURL}/api/doctors/${doctorId}/session`,{
+                method:"GET"
             })
+            if(!response){
+                return;
+            }
             if(!response.ok){
                 let errorMessage=await response.text();
                 setErrorMessage(errorMessage);
@@ -101,12 +121,12 @@ function DoctorDashboard({onLoginClick}){
     }
     const endSession=async()=>{
         try{
-            const response=await fetch(`${baseURL}/api/doctors/${doctorId}/end`,{
-                method:"PATCH",
-                headers:{
-                    "Authorization":`Bearer ${localStorage.getItem("token")}`
-                }
+            const response=await authFetch(`${baseURL}/api/doctors/${doctorId}/end`,{
+                method:"PATCH"
             })
+            if(!response){
+                return;
+            }
             if(!response.ok){
                 let errorMessage=await response.text();
                 setErrorMessage(errorMessage);
@@ -145,12 +165,12 @@ function DoctorDashboard({onLoginClick}){
     }
     const handleNoShow=async()=>{
         try{
-            const response=await fetch(`${baseURL}/api/doctors/${doctorId}/missed`,{
-            method:"POST",
-            headers:{
-                "Authorization":`Bearer ${localStorage.getItem("token")}`
-            }
+            const response=await authFetch(`${baseURL}/api/doctors/${doctorId}/missed`,{
+            method:"POST"
             })
+            if(!response){
+                return;
+            }
             if(!response.ok){
                 let errorMessage=await response.text();
                 setErrorMessage(errorMessage);
