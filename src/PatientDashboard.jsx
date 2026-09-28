@@ -1,4 +1,4 @@
-import { act, useEffect } from "react";
+import { useEffect } from "react";
 import { useState } from "react"
 
 // import svgs
@@ -20,7 +20,16 @@ function PatientDashboard() {
     const [patientName, setPatientName] = useState("");
     const [doctor,setDoctor]=useState({});
     const [errorMessage,setErrorMessage]=useState("");
+    const [nameError,setNameError]=useState("");
     const [registrationMessage,setRegistrationMessage]=useState("")
+
+    const showNameError = (message) => {
+        setNameError(message);
+
+        setTimeout(() => {
+            setNameError("");
+        }, 2000);
+    };
 
     const getDoctorInfo=async()=>{
         try{
@@ -99,7 +108,20 @@ function PatientDashboard() {
     }
 
     const register = async () => {
-        const response = await fetch(`${baseURL}/api/patients/queue/join/${doctorId}?name=${patientName}`, {
+        const trimmedName=patientName.trim();
+        if(!trimmedName){
+            showNameError("Please enter your name");
+            return;
+        }
+        if(trimmedName.length<2) {
+            showNameError("Name must be at least 2 characters");
+            return;
+        }
+        if(trimmedName.length>50) {
+            showNameError("Name must be less than 50 characters");
+            return;
+        }
+        const response = await fetch(`${baseURL}/api/patients/queue/join/${doctorId}?name=${encodeURIComponent(trimmedName)}`, {
             method: "POST"
         })
         const data = await response.json();
@@ -116,6 +138,10 @@ function PatientDashboard() {
             </header>
             {registrationMessage && (
                 <div className={styles.registrationMessage}>{registrationMessage}
+                </div>
+            )}
+            {nameError && (
+                <div className={styles.errorMessage}>{nameError}
                 </div>
             )}
             <section className={styles.formCard}>

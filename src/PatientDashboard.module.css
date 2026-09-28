@@ -35,6 +35,17 @@
     font-size: 16px;
     font-weight: 600;
 }
+.errorMessage {
+    margin: -14px 0 12px;
+    padding: 10px 14px;
+    border: 1px solid #f3b4b4;
+    border-radius: 10px;
+    background: #fff4f4;
+    color: #d13b3b;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+}
 
 .registrationMessage ~ .formCard,
 .registrationMessage ~ .dashboardGrid,
@@ -294,7 +305,13 @@
     .patientDashboardContainer {
         padding: 0 12px 20px;
     }
-
+    .errorMessage {
+        margin: -5px 0 8px;
+        padding: 8px 11px;
+        border-radius: 8px;
+        font-size: 12px;
+    }
+    
     .dashboardHeader {
         height: 58px;
         margin: 0 -12px 12px;
