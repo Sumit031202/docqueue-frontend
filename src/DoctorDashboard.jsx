@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import avatar from "./assets/avatar.svg"
 import queue from "./assets/queue.svg"
 import styles from "./DoctorDashboard.module.css"
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Logo from "./components/Logo";
 import shutdown from './assets/shutdown.svg'
 import clock from './assets/clock.svg'
@@ -10,7 +10,7 @@ import cancel from "./assets/cancel.svg"
 import info from "./assets/info.svg"
 import end from "./assets/end.svg"
 
-function DoctorDashboard(){
+function DoctorDashboard({onLoginClick}){
     const {doctorId}=useParams()
     const baseURL="https://api.docqueue.online"
     const [activePatient,setActivePatient]=useState({"fullName":"Nobody"})
@@ -182,6 +182,36 @@ function DoctorDashboard(){
             console.log(e);
         }
     }
+    const logout=()=>{
+        localStorage.removeItem("token");
+        localStorage.removeItem("doctorId");
+        onLoginClick();
+    }
+    useEffect(()=>{
+        const token=localStorage.getItem("token");
+        if(!token){
+            onLoginClick();
+            return;
+        }
+        try{
+            const payload=JSON.parse(atob(token.split(".")[1]));
+            const expiresAt=payload.exp*1000;
+            const timeUntilExp=expiresAt-Date.now();
+            if(timeUntilExp<=0){
+                logout();
+                return;
+            }
+            const timer=setTimeout(()=>{
+                logout();
+            },timeUntilExp)
+            return()=>{
+                clearTimeout(timer);
+            }
+        }catch(error){
+            console.error("Invalid JWT: ",error);
+            logout();
+        }
+    },[])
     useEffect(()=>{
         getDoctorInfo()
         checkSession();
